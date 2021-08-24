@@ -5,11 +5,11 @@ author: "Анна Ставнийчук"
 output:
   html_document:
     toc: true
-    toc_depth: 2 # глубина оглавления
+    toc_depth: 2 
     toc_float: 
-        collapsed: true # сворачивающееся оглавление
+        collapsed: true 
     theme: united
-    df_print: paged #постраничный вывод датасетов
+    df_print: paged 
 
 ---
 annastavnychuk@gmail.com
