@@ -120,6 +120,28 @@ code span.vs { color: #4070a0; } /* VerbatimString */
 code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
+<style type="text/css">
+/* Used with Pandoc 2.11+ new --citeproc when CSL is used */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}
+</style>
 
 <link rel="stylesheet" href="style.css" type="text/css" />
 </head>
@@ -135,7 +157,6 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 <ul class="summary">
 <li><a href="./">Практическая эконометрика</a></li>
-
 <li class="divider"></li>
 <li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> About</a>
 <ul>
@@ -143,32 +164,53 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="1.2" data-path="index.html"><a href="index.html#render-book"><i class="fa fa-check"></i><b>1.2</b> Render book</a></li>
 <li class="chapter" data-level="1.3" data-path="index.html"><a href="index.html#preview-book"><i class="fa fa-check"></i><b>1.3</b> Preview book</a></li>
 </ul></li>
-<li class="chapter" data-level="2" data-path="01-experiments.html"><a href="01-experiments.html"><i class="fa fa-check"></i><b>2</b> Эксперименты</a>
+<li class="chapter" data-level="2" data-path="01-experiments.html"><a href="01-experiments.html"><i class="fa fa-check"></i><b>2</b> Лекция</a>
 <ul>
-<li class="chapter" data-level="2.1" data-path="01-experiments.html"><a href="01-experiments.html#организационные-моменты"><i class="fa fa-check"></i><b>2.1</b> 0. Организационные моменты</a></li>
-<li class="chapter" data-level="2.2" data-path="01-experiments.html"><a href="01-experiments.html#установка-r"><i class="fa fa-check"></i><b>2.2</b> 1. Установка R</a></li>
-<li class="chapter" data-level="2.3" data-path="01-experiments.html"><a href="01-experiments.html#короткое-напоминание-теории"><i class="fa fa-check"></i><b>2.3</b> 2. Короткое напоминание теории</a>
+<li class="chapter" data-level="2.1" data-path="01-experiments.html"><a href="01-experiments.html#введение-в-эксперименты"><i class="fa fa-check"></i><b>2.1</b> Введение в эксперименты</a>
 <ul>
-<li class="chapter" data-level="2.3.1" data-path="01-experiments.html"><a href="01-experiments.html#потенциальные-исходы"><i class="fa fa-check"></i><b>2.3.1</b> 2.1. Потенциальные исходы</a></li>
-<li class="chapter" data-level="2.3.2" data-path="01-experiments.html"><a href="01-experiments.html#средние-эффекты"><i class="fa fa-check"></i><b>2.3.2</b> 2.2. Средние эффекты</a></li>
-<li class="chapter" data-level="2.3.3" data-path="01-experiments.html"><a href="01-experiments.html#предпосылки"><i class="fa fa-check"></i><b>2.3.3</b> 2.3. Предпосылки</a></li>
+<li class="chapter" data-level="2.1.1" data-path="01-experiments.html"><a href="01-experiments.html#пример---жульничество-на-выборах-enikolopov2013field"><i class="fa fa-check"></i><b>2.1.1</b> Пример - жульничество на выборах: <span class="citation">Enikolopov et al. (<span>2013</span>)</span></a></li>
+<li class="chapter" data-level="2.1.2" data-path="01-experiments.html"><a href="01-experiments.html#результат-эксперимента---значимо-отличается-доля-голосов-за-единую-россию"><i class="fa fa-check"></i><b>2.1.2</b> Результат эксперимента - значимо отличается доля голосов за “Единую Россию”</a></li>
+<li class="chapter" data-level="2.1.3" data-path="01-experiments.html"><a href="01-experiments.html#пример-гетерогенности---программа-переселения-из-ветхого-жилья-в-чикаго-chyn2018moved"><i class="fa fa-check"></i><b>2.1.3</b> Пример гетерогенности - программа переселения из ветхого жилья в Чикаго: <span class="citation">Chyn (<span>2018</span>)</span></a></li>
+<li class="chapter" data-level="2.1.4" data-path="01-experiments.html"><a href="01-experiments.html#эффекты-для-разных-групп-chyn2018moved"><i class="fa fa-check"></i><b>2.1.4</b> Эффекты для разных групп: <span class="citation">Chyn (<span>2018</span>)</span></a></li>
+<li class="chapter" data-level="2.1.5" data-path="01-experiments.html"><a href="01-experiments.html#потенциальные-исходы"><i class="fa fa-check"></i><b>2.1.5</b> Потенциальные исходы}</a></li>
+<li class="chapter" data-level="2.1.6" data-path="01-experiments.html"><a href="01-experiments.html#причинная-модель-рубина-rubin1978bayesian"><i class="fa fa-check"></i><b>2.1.6</b> Причинная модель Рубина: *rubin1978bayesian</a></li>
 </ul></li>
-<li class="chapter" data-level="2.4" data-path="01-experiments.html"><a href="01-experiments.html#работа-со-случайными-числами-в-r"><i class="fa fa-check"></i><b>2.4</b> 3. Работа со случайными числами в R</a></li>
-<li class="chapter" data-level="2.5" data-path="01-experiments.html"><a href="01-experiments.html#мини-симуляция"><i class="fa fa-check"></i><b>2.5</b> 4. Мини-симуляция</a>
+<li class="chapter" data-level="2.2" data-path="01-experiments.html"><a href="01-experiments.html#оценка-эффекта-воздействия"><i class="fa fa-check"></i><b>2.2</b> Оценка эффекта воздействия</a>
 <ul>
-<li class="chapter" data-level="2.5.1" data-path="01-experiments.html"><a href="01-experiments.html#подготовка-данных"><i class="fa fa-check"></i><b>2.5.1</b> 4.1. Подготовка данных</a></li>
-<li class="chapter" data-level="2.5.2" data-path="01-experiments.html"><a href="01-experiments.html#рандомизация"><i class="fa fa-check"></i><b>2.5.2</b> 4.2. Рандомизация</a></li>
-<li class="chapter" data-level="2.5.3" data-path="01-experiments.html"><a href="01-experiments.html#считаем-эффект"><i class="fa fa-check"></i><b>2.5.3</b> 4.3. Считаем эффект</a></li>
-<li class="chapter" data-level="2.5.4" data-path="01-experiments.html"><a href="01-experiments.html#баланс-ковариатов"><i class="fa fa-check"></i><b>2.5.4</b> 4.4. Баланс ковариатов</a></li>
-<li class="chapter" data-level="2.5.5" data-path="01-experiments.html"><a href="01-experiments.html#функции"><i class="fa fa-check"></i><b>2.5.5</b> 4.5 Функции</a></li>
+<li class="chapter" data-level="2.2.1" data-path="01-experiments.html"><a href="01-experiments.html#фундаментальная-проблема-причинного-вывода"><i class="fa fa-check"></i><b>2.2.1</b> Фундаментальная проблема причинного вывода</a></li>
+<li class="chapter" data-level="2.2.2" data-path="01-experiments.html"><a href="01-experiments.html#section"><i class="fa fa-check"></i><b>2.2.2</b> </a></li>
+<li class="chapter" data-level="2.2.3" data-path="01-experiments.html"><a href="01-experiments.html#немного-определений"><i class="fa fa-check"></i><b>2.2.3</b> Немного определений</a></li>
+<li class="chapter" data-level="2.2.4" data-path="01-experiments.html"><a href="01-experiments.html#смещенность-выборки"><i class="fa fa-check"></i><b>2.2.4</b> Смещенность выборки</a></li>
+<li class="chapter" data-level="2.2.5" data-path="01-experiments.html"><a href="01-experiments.html#что-нужно-чтобы-не-было-смещения"><i class="fa fa-check"></i><b>2.2.5</b> Что нужно, чтобы не было смещения</a></li>
+<li class="chapter" data-level="2.2.6" data-path="01-experiments.html"><a href="01-experiments.html#баланс-ковариатов-и-плацебо-тест"><i class="fa fa-check"></i><b>2.2.6</b> Баланс ковариатов и плацебо-тест</a></li>
 </ul></li>
-<li class="chapter" data-level="2.6" data-path="01-experiments.html"><a href="01-experiments.html#планирование-эксперимента"><i class="fa fa-check"></i><b>2.6</b> 5. Планирование эксперимента</a>
+</ul></li>
+<li class="chapter" data-level="3" data-path="01-experiments.html"><a href="01-experiments.html#эксперименты"><i class="fa fa-check"></i><b>3</b> Эксперименты</a>
 <ul>
-<li class="chapter" data-level="2.6.1" data-path="01-experiments.html"><a href="01-experiments.html#престратификация"><i class="fa fa-check"></i><b>2.6.1</b> 5.1 Престратификация</a></li>
-<li class="chapter" data-level="2.6.2" data-path="01-experiments.html"><a href="01-experiments.html#постстратификация"><i class="fa fa-check"></i><b>2.6.2</b> 5.2 Постстратификация</a></li>
+<li class="chapter" data-level="3.1" data-path="01-experiments.html"><a href="01-experiments.html#организационные-моменты"><i class="fa fa-check"></i><b>3.1</b> 0. Организационные моменты</a></li>
+<li class="chapter" data-level="3.2" data-path="01-experiments.html"><a href="01-experiments.html#установка-r"><i class="fa fa-check"></i><b>3.2</b> 1. Установка R</a></li>
+<li class="chapter" data-level="3.3" data-path="01-experiments.html"><a href="01-experiments.html#короткое-напоминание-теории"><i class="fa fa-check"></i><b>3.3</b> 2. Короткое напоминание теории</a>
+<ul>
+<li class="chapter" data-level="3.3.1" data-path="01-experiments.html"><a href="01-experiments.html#потенциальные-исходы-1"><i class="fa fa-check"></i><b>3.3.1</b> 2.1. Потенциальные исходы</a></li>
+<li class="chapter" data-level="3.3.2" data-path="01-experiments.html"><a href="01-experiments.html#средние-эффекты"><i class="fa fa-check"></i><b>3.3.2</b> 2.2. Средние эффекты</a></li>
+<li class="chapter" data-level="3.3.3" data-path="01-experiments.html"><a href="01-experiments.html#предпосылки"><i class="fa fa-check"></i><b>3.3.3</b> 2.3. Предпосылки</a></li>
 </ul></li>
-<li class="chapter" data-level="2.7" data-path="01-experiments.html"><a href="01-experiments.html#контрольные-переменные"><i class="fa fa-check"></i><b>2.7</b> 6. Контрольные переменные</a></li>
-<li class="chapter" data-level="2.8" data-path="01-experiments.html"><a href="01-experiments.html#скорректированное-p-значение"><i class="fa fa-check"></i><b>2.8</b> 7. Скорректированное p-значение</a></li>
+<li class="chapter" data-level="3.4" data-path="01-experiments.html"><a href="01-experiments.html#работа-со-случайными-числами-в-r"><i class="fa fa-check"></i><b>3.4</b> 3. Работа со случайными числами в R</a></li>
+<li class="chapter" data-level="3.5" data-path="01-experiments.html"><a href="01-experiments.html#мини-симуляция"><i class="fa fa-check"></i><b>3.5</b> 4. Мини-симуляция</a>
+<ul>
+<li class="chapter" data-level="3.5.1" data-path="01-experiments.html"><a href="01-experiments.html#подготовка-данных"><i class="fa fa-check"></i><b>3.5.1</b> 4.1. Подготовка данных</a></li>
+<li class="chapter" data-level="3.5.2" data-path="01-experiments.html"><a href="01-experiments.html#рандомизация"><i class="fa fa-check"></i><b>3.5.2</b> 4.2. Рандомизация</a></li>
+<li class="chapter" data-level="3.5.3" data-path="01-experiments.html"><a href="01-experiments.html#считаем-эффект"><i class="fa fa-check"></i><b>3.5.3</b> 4.3. Считаем эффект</a></li>
+<li class="chapter" data-level="3.5.4" data-path="01-experiments.html"><a href="01-experiments.html#баланс-ковариатов"><i class="fa fa-check"></i><b>3.5.4</b> 4.4. Баланс ковариатов</a></li>
+<li class="chapter" data-level="3.5.5" data-path="01-experiments.html"><a href="01-experiments.html#функции"><i class="fa fa-check"></i><b>3.5.5</b> 4.5 Функции</a></li>
+</ul></li>
+<li class="chapter" data-level="3.6" data-path="01-experiments.html"><a href="01-experiments.html#планирование-эксперимента"><i class="fa fa-check"></i><b>3.6</b> 5. Планирование эксперимента</a>
+<ul>
+<li class="chapter" data-level="3.6.1" data-path="01-experiments.html"><a href="01-experiments.html#престратификация"><i class="fa fa-check"></i><b>3.6.1</b> 5.1 Престратификация</a></li>
+<li class="chapter" data-level="3.6.2" data-path="01-experiments.html"><a href="01-experiments.html#постстратификация"><i class="fa fa-check"></i><b>3.6.2</b> 5.2 Постстратификация</a></li>
+</ul></li>
+<li class="chapter" data-level="3.7" data-path="01-experiments.html"><a href="01-experiments.html#контрольные-переменные"><i class="fa fa-check"></i><b>3.7</b> 6. Контрольные переменные</a></li>
+<li class="chapter" data-level="3.8" data-path="01-experiments.html"><a href="01-experiments.html#скорректированное-p-значение"><i class="fa fa-check"></i><b>3.8</b> 7. Скорректированное p-значение</a></li>
 </ul></li>
 </ul>
 
@@ -258,8 +300,8 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/USERNAME/REPO/edit/BRANCH/index.Rmd",
-"text": "Edit"
+"link": null,
+"text": null
 },
 "history": {
 "link": null,
@@ -269,7 +311,7 @@ gitbook.start({
 "link": null,
 "text": null
 },
-"download": ["_main.pdf", "_main.epub"],
+"download": null,
 "search": {
 "engine": "lunr",
 "options": null
