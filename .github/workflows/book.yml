@@ -36,7 +36,7 @@ jobs:
       - name: Restore Renv package cache again
         uses: actions/cache@v2
         with:
-          path: $R_LIBS_USER
+          path: /home/runner/work/_temp/Library
           key: ${{ steps.get-version.outputs.os-version }}-${{ steps.get-version.outputs.r-version }}-${{ matrix.cache-version }}-${{ hashFiles('renv.lock') }}
           restore-keys: ${{ steps.get-version.outputs.os-version }}-${{ steps.get-version.outputs.r-version }}-${{matrix.cache-version }}-
       - name: Install renv dependencies
