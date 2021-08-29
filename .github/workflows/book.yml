@@ -33,13 +33,13 @@ jobs:
           path: $HOME/.local/share/renv
           key: ${{ steps.get-version.outputs.os-version }}-${{ steps.get-version.outputs.r-version }}-${{ matrix.cache-version }}-${{ hashFiles('renv.lock') }}
           restore-keys: ${{ steps.get-version.outputs.os-version }}-${{ steps.get-version.outputs.r-version }}-${{matrix.cache-version }}-
-
+      - run: find .
       - name: Install renv dependencies
         shell: bash
         run: |
           R -e 'install.packages("renv")'
           R -e 'renv::restore()'
-          
+      - run: find .
       - name: Install Pandoc
         uses: r-lib/actions/setup-pandoc@v1
         with:
