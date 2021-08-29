@@ -1,0 +1,52 @@
+bookdown::gitbook:
+  css: style.css
+  split_by: 'rmd'
+  config:
+    toc:
+      before: |
+        <li><a href="./">Практическая эконометрика</a></li>
+    edit: https://github.com/USERNAME/REPO/edit/BRANCH/%s
+    download: ["pdf", "epub"]
+
+bookdown::pdf_book:
+  includes:
+    in_header: preamble.tex
+  latex_engine: xelatex
+  citation_package: natbib
+  keep_tex: yes
+
+bookdown::epub_book: default
+
+bookdown::bs4_book:
+  # can use html_document params here
+  theme:
+    primary: "#0d6efd"  
+
+bookdown::ioslides_presentation2:
+  widescreen: true
+  smaller: true
+  slide_level: 3
+
+# doesn't work for now because of nesting  
+revealjs::revealjs_presentation:
+  theme: white
+  transition: slide
+  slide_level: 3
+
+bookdown::latex_document2: default
+
+html_document:
+  toc: true
+  toc_depth: 3 # глубина оглавления
+  toc_float: 
+      collapsed: true # сворачивающееся оглавление
+  theme: united
+  df_print: paged #постраничный вывод датасетов
+
+bookdown::html_document2:
+  toc: true
+  toc_depth: 3 # глубина оглавления
+  toc_float: 
+      collapsed: true # сворачивающееся оглавление
+  theme: united
+  df_print: paged #постраничный вывод датасетов

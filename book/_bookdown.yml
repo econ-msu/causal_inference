@@ -1,0 +1,7 @@
+delete_merged_file: true
+language:
+  ui:
+    chapter_name: "Неделя "
+
+#output_dir: хмм!!!! + well for presas also
+#rmd_subdir: true
