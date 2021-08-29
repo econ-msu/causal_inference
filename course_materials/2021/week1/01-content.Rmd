@@ -1,14 +1,14 @@
 ---
 title: "Семинары 1-3. Эксперименты."
 author: "Анна Ставнийчук"
-output_yaml: '../../book/_output.yml'
+output_yaml: '../../../book/_output.yml'
 #date: "01/09/2021"
 # relative paths.. knit root dir i suppose
 
 # seperate file for books because it specify chapters...
 # or can I use title
-
+# CHANGE R WD for all files!!!
 ---
 
-```{r, child=c('../../Seminars content/01-Experiments_section.Rmd')}
+```{r, child=c('../../../Seminars content/01-Experiments_section.Rmd')}
 ```
