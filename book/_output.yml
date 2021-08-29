@@ -3,10 +3,9 @@ bookdown::gitbook:
   split_by: 'rmd'
   config:
     toc:
-      before: |
-        <li><a href="./">Практическая эконометрика</a></li>
-    edit: https://github.com/USERNAME/REPO/edit/BRANCH/%s
-    download: ["pdf", "epub"]
+      before: <li><a href="./">Практическая эконометрика</a></li> 
+ #    edit: https://github.com/USERNAME/REPO/edit/BRANCH/%s
+ #    download: ["pdf", "epub"]
 
 bookdown::pdf_book:
   includes:
@@ -18,7 +17,7 @@ bookdown::pdf_book:
 bookdown::epub_book: default
 
 bookdown::bs4_book:
-  # can use html_document params here
+  mathjax: https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.jss
   theme:
     primary: "#0d6efd"  
 
@@ -27,7 +26,6 @@ bookdown::ioslides_presentation2:
   smaller: true
   slide_level: 3
 
-# doesn't work for now because of nesting  
 revealjs::revealjs_presentation:
   theme: serif
   mathjax: https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js

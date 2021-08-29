@@ -9,6 +9,11 @@ output_yaml: '../../_output.yml'
 # or can I use title
 
 ---
+# Лекция
+
+```{r, child=c('../content/experiments.Rmd')}
+```
+
 
 # Эксперименты
 
