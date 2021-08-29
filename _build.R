@@ -10,6 +10,6 @@ for (f in dir('course_materials', recursive=T)) {
     dirs <- unlist(strsplit(f, '/'))
     output_dir <- paste0(c(output_base_dir, dirs[-length(dirs)]), collapse='/')
     rmarkdown::render(read_file, 'bookdown::html_document2', output_dir=output_dir) 
-    rmarkdown::render(read_file, 'bookdown::ioslides_presentation2', output_file = 'slides', output_dir=output_dir) 
+    rmarkdown::render(read_file, 'bookdown::ioslides_presentation2', output_dir = paste0(output_dir, '/slides')) 
   }
 }

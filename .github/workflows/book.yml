@@ -57,6 +57,6 @@ jobs:
           cd ../
           Rscript _build.R
           cd book-output
-          git add --all *
+          git add --all -f *
           git commit -m "Update the book"
           git push origin gh-pages
