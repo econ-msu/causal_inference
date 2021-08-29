@@ -29,7 +29,8 @@ bookdown::ioslides_presentation2:
 
 # doesn't work for now because of nesting  
 revealjs::revealjs_presentation:
-  theme: white
+  theme: serif
+  mathjax: https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js
   transition: slide
   slide_level: 3
 
@@ -46,6 +47,7 @@ html_document:
 bookdown::html_document2:
   toc: true
   toc_depth: 3 # глубина оглавления
+  mathjax: https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js
   toc_float: 
       collapsed: true # сворачивающееся оглавление
   theme: united
