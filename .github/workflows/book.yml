@@ -19,12 +19,7 @@ jobs:
         uses: r-lib/actions/setup-r@v1
         with:
           r-version: ${{ matrix.r-version }}
-      - name: Install renv and query dependencies
-        run: |
-          install.packages("pak", repos = "https://r-lib.github.io/p/pak/dev/")
-          saveRDS(pak::pkg_deps("local::.", dependencies = TRUE), ".github/r-depends.rds")
-        shell: Rscript {0}
-
+          
       - name: Get R and OS version
         id: get-version
         run: |
@@ -44,12 +39,7 @@ jobs:
         run: |
           R -e 'install.packages("renv")'
           R -e 'renv::restore()'
-      - name: Don't use tar 1.30 from Rtools35 to store the cache
-        shell: bash
-        run: |
-          if command -v /c/Rtools/bin/tar && /c/Rtools/bin/tar --version | grep -q 'tar (GNU tar) 1.30'
-            then echo 'C:/Program Files/Git/usr/bin' >> $GITHUB_PATH
-          fi
+          
       - name: Install Pandoc
         uses: r-lib/actions/setup-pandoc@v1
         with:
