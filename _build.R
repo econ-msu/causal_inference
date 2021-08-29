@@ -6,6 +6,7 @@ bookdown::render_book("book")
 
 for (f in dir('course_materials', recursive=T)) {
   if(grepl('.Rmd', f)) {
+    read_file <- paste0('course_materials/', f)
     dirs <- unlist(strsplit(f, '/'))
     output_dir <- paste0(c(output_base_dir, dirs[-length(dirs)]), collapse='/')
     rmarkdown::render(read_file, 'bookdown::html_document2', output_dir=output_dir) 

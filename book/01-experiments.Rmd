@@ -12,5 +12,5 @@ output_yaml: '../../_output.yml'
 
 # Эксперименты
 
-```{r, child=c('../Seminars content/01-Experiments_section.Rmd')}
+```{r, child=c('../content/01-Experiments_section.Rmd')}
 ```
