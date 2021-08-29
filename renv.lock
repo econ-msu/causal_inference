@@ -380,6 +380,13 @@
       "Repository": "CRAN",
       "Hash": "30e5eba91b67f7f4d75d31de14bbfbdc"
     },
+    "revealjs": {
+      "Package": "revealjs",
+      "Version": "0.9",
+      "Source": "Repository",
+      "Repository": "CRAN",
+      "Hash": "08e30caa337e6d335d83df1a05d5b9f3"
+    },
     "rlang": {
       "Package": "rlang",
       "Version": "0.4.11",
