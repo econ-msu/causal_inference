@@ -49,7 +49,7 @@ jobs:
         with:
           ref: 'gh-pages'
           path: 'book-output'
-      - name:
+      - name: Compile the Book
         shell: bash
         run: |
           cd book-output
