@@ -1,8 +1,0 @@
-delete_merged_file: true
-output_dir: '../book-output'
-language:
-  ui:
-    chapter_name: "Неделя "
-
-#output_dir: хмм!!!! + well for presas also
-#rmd_subdir: true

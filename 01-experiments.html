@@ -1,0 +1,846 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Неделя 2 Эксперименты | Семинары 1-3. Эксперименты.</title>
+  <meta name="description" content="Сборник материалов курса Практическая эконометрика на экономическом факультете МГУ" />
+  <meta name="generator" content="bookdown 0.23 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Неделя 2 Эксперименты | Семинары 1-3. Эксперименты." />
+  <meta property="og:type" content="book" />
+  <meta property="og:url" content="https://econ-msu.github.io/causal_inference" />
+  
+  <meta property="og:description" content="Сборник материалов курса Практическая эконометрика на экономическом факультете МГУ" />
+  <meta name="github-repo" content="econ-msu/causal_inference" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Неделя 2 Эксперименты | Семинары 1-3. Эксперименты." />
+  
+  <meta name="twitter:description" content="Сборник материалов курса Практическая эконометрика на экономическом факультете МГУ" />
+  
+
+<meta name="author" content="Анна Ставнийчук" />
+
+
+<meta name="date" content="2021-08-29" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="index.html"/>
+
+<script src="libs/header-attrs-2.10/header-attrs.js"></script>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">Практическая эконометрика</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> About</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="index.html"><a href="index.html#usage"><i class="fa fa-check"></i><b>1.1</b> Usage</a></li>
+<li class="chapter" data-level="1.2" data-path="index.html"><a href="index.html#render-book"><i class="fa fa-check"></i><b>1.2</b> Render book</a></li>
+<li class="chapter" data-level="1.3" data-path="index.html"><a href="index.html#preview-book"><i class="fa fa-check"></i><b>1.3</b> Preview book</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="01-experiments.html"><a href="01-experiments.html"><i class="fa fa-check"></i><b>2</b> Эксперименты</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="01-experiments.html"><a href="01-experiments.html#организационные-моменты"><i class="fa fa-check"></i><b>2.1</b> 0. Организационные моменты</a></li>
+<li class="chapter" data-level="2.2" data-path="01-experiments.html"><a href="01-experiments.html#установка-r"><i class="fa fa-check"></i><b>2.2</b> 1. Установка R</a></li>
+<li class="chapter" data-level="2.3" data-path="01-experiments.html"><a href="01-experiments.html#короткое-напоминание-теории"><i class="fa fa-check"></i><b>2.3</b> 2. Короткое напоминание теории</a>
+<ul>
+<li class="chapter" data-level="2.3.1" data-path="01-experiments.html"><a href="01-experiments.html#потенциальные-исходы"><i class="fa fa-check"></i><b>2.3.1</b> 2.1. Потенциальные исходы</a></li>
+<li class="chapter" data-level="2.3.2" data-path="01-experiments.html"><a href="01-experiments.html#средние-эффекты"><i class="fa fa-check"></i><b>2.3.2</b> 2.2. Средние эффекты</a></li>
+<li class="chapter" data-level="2.3.3" data-path="01-experiments.html"><a href="01-experiments.html#предпосылки"><i class="fa fa-check"></i><b>2.3.3</b> 2.3. Предпосылки</a></li>
+</ul></li>
+<li class="chapter" data-level="2.4" data-path="01-experiments.html"><a href="01-experiments.html#работа-со-случайными-числами-в-r"><i class="fa fa-check"></i><b>2.4</b> 3. Работа со случайными числами в R</a></li>
+<li class="chapter" data-level="2.5" data-path="01-experiments.html"><a href="01-experiments.html#мини-симуляция"><i class="fa fa-check"></i><b>2.5</b> 4. Мини-симуляция</a>
+<ul>
+<li class="chapter" data-level="2.5.1" data-path="01-experiments.html"><a href="01-experiments.html#подготовка-данных"><i class="fa fa-check"></i><b>2.5.1</b> 4.1. Подготовка данных</a></li>
+<li class="chapter" data-level="2.5.2" data-path="01-experiments.html"><a href="01-experiments.html#рандомизация"><i class="fa fa-check"></i><b>2.5.2</b> 4.2. Рандомизация</a></li>
+<li class="chapter" data-level="2.5.3" data-path="01-experiments.html"><a href="01-experiments.html#считаем-эффект"><i class="fa fa-check"></i><b>2.5.3</b> 4.3. Считаем эффект</a></li>
+<li class="chapter" data-level="2.5.4" data-path="01-experiments.html"><a href="01-experiments.html#баланс-ковариатов"><i class="fa fa-check"></i><b>2.5.4</b> 4.4. Баланс ковариатов</a></li>
+<li class="chapter" data-level="2.5.5" data-path="01-experiments.html"><a href="01-experiments.html#функции"><i class="fa fa-check"></i><b>2.5.5</b> 4.5 Функции</a></li>
+</ul></li>
+<li class="chapter" data-level="2.6" data-path="01-experiments.html"><a href="01-experiments.html#планирование-эксперимента"><i class="fa fa-check"></i><b>2.6</b> 5. Планирование эксперимента</a>
+<ul>
+<li class="chapter" data-level="2.6.1" data-path="01-experiments.html"><a href="01-experiments.html#престратификация"><i class="fa fa-check"></i><b>2.6.1</b> 5.1 Престратификация</a></li>
+<li class="chapter" data-level="2.6.2" data-path="01-experiments.html"><a href="01-experiments.html#постстратификация"><i class="fa fa-check"></i><b>2.6.2</b> 5.2 Постстратификация</a></li>
+</ul></li>
+<li class="chapter" data-level="2.7" data-path="01-experiments.html"><a href="01-experiments.html#контрольные-переменные"><i class="fa fa-check"></i><b>2.7</b> 6. Контрольные переменные</a></li>
+<li class="chapter" data-level="2.8" data-path="01-experiments.html"><a href="01-experiments.html#скорректированное-p-значение"><i class="fa fa-check"></i><b>2.8</b> 7. Скорректированное p-значение</a></li>
+</ul></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Семинары 1-3. Эксперименты.</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="эксперименты" class="section level1" number="2">
+<h1><span class="header-section-number">Неделя 2</span> Эксперименты</h1>
+<div id="организационные-моменты" class="section level2" number="2.1">
+<h2><span class="header-section-number">2.1</span> 0. Организационные моменты</h2>
+<ul>
+<li>Мои контакты
+<ul>
+<li>Почта – <a href="mailto:annastavnychuk@gmail.com" class="email">annastavnychuk@gmail.com</a></li>
+<li>Telegram – <a href="https://t.me/AnnaStavniychuk" class="uri">https://t.me/AnnaStavniychuk</a></li>
+</ul></li>
+<li>Ресурсы по курсу
+<ul>
+<li>Страница курса на on.econ – <a href="https://on.econ.msu.ru/course/view.php?id=1624" class="uri">https://on.econ.msu.ru/course/view.php?id=1624</a></li>
+<li>Чат курса – <a href="https://t.me/Applied_ECM_2021_chat" class="uri">https://t.me/Applied_ECM_2021_chat</a></li>
+<li>Канал курса –</li>
+</ul></li>
+<li>Не стесняйтесь задавать свои вопросы в чат курса
+<ul>
+<li>Ответ на ваш вопрос может быть полезен вашим однокурсникам</li>
+<li>В чате сразу четыре преподавателя, что в несколько раз повышает вероятность получить ответ на ваш вопрос скорее :)</li>
+<li>Вы также можете отвечать на вопросы ваших однокурсников или дискутировать с ними в чате</li>
+</ul></li>
+</ul>
+</div>
+<div id="установка-r" class="section level2" number="2.2">
+<h2><span class="header-section-number">2.2</span> 1. Установка R</h2>
+<p>Установка R на компьютер состоит из двух частей:</p>
+<ul>
+<li>Установка дистрибутива R – <a href="https://cran.r-project.org/" class="uri">https://cran.r-project.org/</a></li>
+<li>Установка графического интерфейса. Они бывают разными, вы можете выбрать любой удобный для вас. Мы на занятиях будем использовать RStudio – <a href="https://www.rstudio.com/products/rstudio/download/" class="uri">https://www.rstudio.com/products/rstudio/download/</a></li>
+</ul>
+<p>Более подробную инструкцию для разных ОС можно почитать <a href="https://bdemeshev.github.io/installation/r/R_installation.html#--r--macos">тут</a>.</p>
+</div>
+<div id="короткое-напоминание-теории" class="section level2" number="2.3">
+<h2><span class="header-section-number">2.3</span> 2. Короткое напоминание теории</h2>
+<div id="потенциальные-исходы" class="section level3" number="2.3.1">
+<h3><span class="header-section-number">2.3.1</span> 2.1. Потенциальные исходы</h3>
+<p><strong>Обозначения:</strong></p>
+<ul>
+<li><p><span class="math inline">\(X_i\)</span> – независимые переменные (covariates)</p></li>
+<li><p><span class="math inline">\(T_i\)</span> – бинарная переменная воздействия (treatment variable):
+<span class="math display">\[\begin{equation*}
+T_i = 
+ \begin{cases}
+ 1, &amp;\text{воздействие на объект i оказано}\\
+ 0, &amp;\text{воздействие на объект i не оказано}
+ \end{cases}
+\end{equation*}\]</span></p></li>
+<li><p><span class="math inline">\(Y_{i1}\)</span>, <span class="math inline">\(Y_{i0}\)</span> – потенциальные исходы (potential outcomes)</p></li>
+</ul>
+<p>Наблюдаемые исходы <span class="math inline">\(Y_i\)</span> отличаются от потенциальных исходов. Потенциальные исходы являются <em>гипотетическими</em> случайными величинами, когда наблюдаемые исходы являются <em>фактическими</em> случайными величинами. Наблюдаемые исходы являются функцией от потенциальных исходов:</p>
+<p><span class="math inline">\(Y_i = T_i \cdot Y_{i1} + (1-T_i) \cdot Y_{i0}\)</span></p>
+<p>Действительно при <span class="math inline">\(T=1\)</span> мы получим <span class="math inline">\(Y_i = Y_{i1}\)</span>, а при <span class="math inline">\(T=0\)</span> получим <span class="math inline">\(Y_i = Y_{i0}\)</span>.</p>
+<p>Тогда наш эффект воздействия для конкретного наблюдения равен разнице между двумя состояниями мира для этого наблюдения (потенциальными исходами):</p>
+<p><span class="math inline">\(\tau_i = Y_{i1} - Y_{i0}\)</span></p>
+<p><strong>Фундаментальная проблема причинного вывода (Fundamental problem of causal inference):</strong></p>
+<p>Чтобы оценить эффект воздействия для конкретного индивида, мы должны знать потенциальные исходы сразу для двух его состояний мира, но реально мы наблюдаем только одно из них – либо <span class="math inline">\(Y_{i1}\)</span>, если индивид подвергся воздействию, либо <span class="math inline">\(Y_{i0}\)</span>, если он ему не подвергался. Оценка индивидуального эффекта требует доступа к данным, которых у нас физически не может быть.</p>
+</div>
+<div id="средние-эффекты" class="section level3" number="2.3.2">
+<h3><span class="header-section-number">2.3.2</span> 2.2. Средние эффекты</h3>
+<p>Если с распределением индивидуального эффекта воздействия (treatment effect) работать не получается, будем довольствоваться средними величинами. Например, попробуем рассчитать <strong>средний эффект воздействия</strong> (average
+treatment effect):</p>
+<p><span class="math inline">\(ATE = \mathbb{E}[\tau_i] = \mathbb{E}[Y_{i1} - Y_{i0}] = \mathbb{E}[Y_{i1}] - \mathbb{E}[Y_{i0}] \xrightarrow{p} \frac{1}{N_1}\sum \limits_{i=1}^{N_1}Y_{i1} - \frac{1}{N_0}\sum \limits_{i=1}^{N_0}Y_{i0}\)</span></p>
+<p>Следующий шаг, который мы предпримем, попробуем рассчиать величину эффекта только для тритмент группы – <strong>средний эффект воздействия на задействованных</strong> (average treatment effect for the treatment group):</p>
+<p><span class="math inline">\(ATT = \mathbb{E}[\tau_i|T_i=1] = \mathbb{E}[Y_{i1} - Y_{i0}|T_i=1] = \mathbb{E}[Y_{i1}|T_i=1] - \mathbb{E}[Y_{i0}|T_i=1]\)</span></p>
+<p>А теперь то же самое, но для контрольной группы – <strong>средний эффект воздействия на незадействованных</strong> (average treatment on the non-treated):</p>
+<p><span class="math inline">\(ATnT = \mathbb{E}[\tau_i|T_i=0] = \mathbb{E}[Y_{i1} - Y_{i0}|T_i=0] = \mathbb{E}[Y_{i1}|T_i=0] - \mathbb{E}[Y_{i0}|T_i=0]\)</span></p>
+<p>Обратите внимание, как и в случае с определением эффекта воздействия на индивидуальном уровне, различные модификации средних эффектов воздействия снова требуют от нас знания обоих потенциальных исходов для каждого наблюдения. Таким образом, и средние, и индивидуальный эффект воздействия нельзя напрямую рассчиать, но мы будем пробовать их оценить.</p>
+<p>Самая простая идея для оценки ATE, которая всем придет в голову, взять простую разницу в средних: <span class="math inline">\(\mathbb{E}[Y_1|T=1] - \mathbb{E}[Y_0|T=0]\)</span>.</p>
+<p>Но тут всё не так просто, после небольших преобразований, с которыми можно ознакомиться в <a href="https://mixtape.scunning.com/potential-outcomes.html?panelset=r-code&amp;panelset1=r-code2&amp;panelset2=r-code3&amp;panelset3=r-code4&amp;panelset4=r-code5&amp;panelset5=r-code6#simple-difference-in-means-decomposition">части 4.1.3 учебника</a> мы получим следующее:</p>
+<p><span class="math inline">\(\mathbb{E}[Y_1|T=1] - \mathbb{E}[Y_0|T=0] = \underbrace{\mathbb{E}[Y_1] - \mathbb{E}[Y_0]}_{\text{ATE}} + \underbrace{\mathbb{E}[Y_0|T=1] - \mathbb{E}[Y_0|T=0]}_{\text{Selection Bias}} + \underbrace{(1-\pi)(ATT - ATnT)}_{\text{Heterogeneous treatment effect bias}}\)</span></p>
+<ul>
+<li><strong>ATE</strong> – интересующий нас эффект</li>
+<li><strong>Selection Bias</strong> – смещение, возникающее из-за того, что контрольная группа и группа воздействия различались, даже если бы на них не было оказано воздействие, то есть имеет место некоторый дисбаланс</li>
+<li><strong>Heterogeneous treatment effect bias</strong> – различие в интенсивности эффекта для тритмент и контрольной группы, взвешенное на долю выборки <span class="math inline">\((1-\pi)\)</span>, которая попала в контрольную группу</li>
+</ul>
+<p>Далее мы рассмотрим предпосылки, которые позволяют нивелировать влияние этих двух смещений и получить оценку ATE.</p>
+</div>
+<div id="предпосылки" class="section level3" number="2.3.3">
+<h3><span class="header-section-number">2.3.3</span> 2.3. Предпосылки</h3>
+<ol style="list-style-type: decimal">
+<li><strong>Экзогенность воздействия (Independence assumption)</strong></li>
+</ol>
+<p>Экзогенность воздействия (Independence assumption) означает, что распределение объекта в тритмент или контрольную группы осуществляется случайно и независимо от его изначальных характеристик. Данная предпосылка обычно обозначается следующим образом <span class="math inline">\((T_1, Y_0, X)_i \perp T_i\)</span></p>
+<p>Технически для нас это значит следующее:</p>
+<ul>
+<li><span class="math inline">\(\mathbb{E}[Y_0|T=1] - \mathbb{E}[Y_0|T=0] = 0 \Rightarrow \text{Selection Bias}=0\)</span></li>
+<li><span class="math inline">\(\mathbb{E}[Y_1|T=1] - \mathbb{E}[Y_1|T=0] = 0\)</span>
+<ul>
+<li><span class="math inline">\((1-\pi)(ATT - ATnT) = (1-\pi)\left[(\mathbb{E}[Y_1|T=1]-\mathbb{E}[Y_0|T=1])-(\mathbb{E}[Y_1|T=0]-\mathbb{E}[Y_0|T=0])\right] = 0 \Rightarrow \text{Heterogeneous treatment effect bias}=0\)</span></li>
+</ul></li>
+</ul>
+<p>То есть хорошая рандомизация, а следовательно, и выполнение предпосылок, позволяет нам очистить эффект воздействия от двух типов смещения, в этом случае:</p>
+<p><span class="math inline">\(ATE = \mathbb{E}[Y_1] - \mathbb{E}[Y_0] = \mathbb{E}[Y_1|T=1] - \mathbb{E}[Y_0|T=0] \xrightarrow{p} \frac{1}{N_1}\sum \limits_{i=1}^{N_1}Y_{i1} - \frac{1}{N_0}\sum \limits_{i=1}^{N_0}Y_{i0}\)</span></p>
+<ol start="2" style="list-style-type: decimal">
+<li><strong>Отсутствие “внешних эффектов” воздействия (SUTVA – Stable unit treatment value assumption)</strong></li>
+</ol>
+<p>Эта предпосылка подразумевает выполнение двух вещей. Во-первых, воздействие оказывается только на один объект и внешние эффекты у него отсутствуют. Во-вторых, воздействие гомогенно – существует только один тип тритмента.</p>
+</div>
+</div>
+<div id="работа-со-случайными-числами-в-r" class="section level2" number="2.4">
+<h2><span class="header-section-number">2.4</span> 3. Работа со случайными числами в R</h2>
+<p>В рамках курса нам неоднократно придется прибегнуть к генерации случайных чисел из какого-нибудь закона распределения, как правило, из нормального. Для работы со случайными числами из нормального распределения в R используется несколько функций: <code>dnorm()</code> для плотности вероятности, <code>pnorm()</code> для функции распределения, <code>qnorm()</code> для квантилей распределения и <code>rnorm()</code> для генерации случайных чисел. Почитать подробнее про них и посмотреть примеры можно <a href="https://seankross.com/notes/dpqr/">тут</a> или <a href="https://bookdown.org/rdpeng/rprogdatascience/simulation.html">тут</a>.</p>
+<p>Если вы не уверены в синтаксисе какой-то функции, вы можете воспользоваться встроенной справкой в RStudio (справочная информация появится во вкладке <code>Help</code>):</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="01-experiments.html#cb3-1" aria-hidden="true" tabindex="-1"></a>?rnorm</span></code></pre></div>
+<p>Если вам когда-нибудь понадобятся функции для других распределений, вы можете, конечно, их просто загуглить или ввести в окне <code>Help</code> запрос “Distributions”:</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="01-experiments.html#cb4-1" aria-hidden="true" tabindex="-1"></a>?Distributions</span></code></pre></div>
+<p>Теперь, когда мы точно знаем, как устроены аргументы у функции <code>rnorm(n;mean;sd)</code>, давайте попробуем достать 5 чисел из стандартного нормального распределения <span class="math inline">\(\mathcal{N} \sim \left(0;1\right)\)</span>:</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="01-experiments.html#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">rnorm</span>(<span class="dv">5</span>,<span class="dv">0</span>,<span class="dv">1</span>)</span></code></pre></div>
+<pre><code>## [1] -0.5193358  1.5111500 -0.3623543  0.2155401 -1.0179322</code></pre>
+<p>Если вы повторяли за мной, то у вас, вероятно, получились другие значения. А теперь я тоже попробую ещё раз:</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="01-experiments.html#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">rnorm</span>(<span class="dv">5</span>,<span class="dv">0</span>,<span class="dv">1</span>)</span></code></pre></div>
+<pre><code>## [1]  1.5564071 -1.2693455  0.6423387 -1.2735691  0.8658222</code></pre>
+<p>Как и ожидалось, у меня тоже не совпало с предыдущим результатом. Существует по меньшей мере две причины, почему нам хотелось бы получать одинаковые результаты:</p>
+<ul>
+<li>Работа на семинарах, когда нам с вами было бы удобно сверяться</li>
+<li>Воспроизводимые научные исследования, когда любой читатель может реплицировать и проверить на корректность ваш результат</li>
+</ul>
+<p>В R существует несколько алгоритмов, позволящих генерировать случайные числа (Random Number Generator (RNG), подробнее – <code>?RNGkind</code>). По умолчанию используется Mersenne twister (Вихрь Мерсенна), поскольку он работает наиболее быстро. Однако все эти алгоритмы на самом деле детерминированы, поэтому генерируемые ими числа корректнее называть “псевдослучайными”.</p>
+<p>Генератор псевдослучайных чисел начинает свою работу с определенной точки в пространстве возможных чисел. Эту точку приянто называть начальное число или seed. <em>Начальное число</em> – это число (или вектор), используемое для инициализации генератора псевдослучайных чисел. Если вы хотите получить одинаковые результаты с помощью генератора случайных чисел, важно установить начальное число. Для этого в R используется функция <code>set.seed()</code>. По умолчанию начальное число не установлено, если ничего не указать, то создается новое из текущего времени и идентификатора процесса на вашем устройстве. Следовательно, по умолчанию разные сеансы дают разные результаты моделирования.</p>
+<p>Давайте снова попробуем сгенерировать 5 чисел из случайного нормального распределения, но в этот раз зафиксируем seed:</p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="01-experiments.html#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">123</span>)</span>
+<span id="cb9-2"><a href="01-experiments.html#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="fu">rnorm</span>(<span class="dv">5</span>,<span class="dv">0</span>,<span class="dv">1</span>)</span></code></pre></div>
+<pre><code>## [1] -0.56047565 -0.23017749  1.55870831  0.07050839  0.12928774</code></pre>
+<p>И еще разок:</p>
+<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="01-experiments.html#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">123</span>)</span>
+<span id="cb11-2"><a href="01-experiments.html#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="fu">rnorm</span>(<span class="dv">5</span>,<span class="dv">0</span>,<span class="dv">1</span>)</span></code></pre></div>
+<pre><code>## [1] -0.56047565 -0.23017749  1.55870831  0.07050839  0.12928774</code></pre>
+<p>Получилось! В качестве seed можно использовать любое число, главное, чтобы при репликации оно каждый раз было одинаковым.</p>
+<p>Почитать про set.seed можно <a href="https://r-analytics.blogspot.com/2012/05/blog-post.html">тут</a> на русском и <a href="https://r-coder.com/set-seed-r/">тут</a> на английском.</p>
+</div>
+<div id="мини-симуляция" class="section level2" number="2.5">
+<h2><span class="header-section-number">2.5</span> 4. Мини-симуляция</h2>
+<p>Симуляции – это “игрушечные” примеры, которые позволят нам на протяжении курса разбираться с разными методами. Игрушечные они потому, что за ними не стоят реальные данные. Данные для симуляций мы будем специальным образом заранее моделировать. Это бывает удобно, когда идеально подходящих данных нет, или они не лежат в открытом доступе. К тому же, живые данные часто могут быть зашумлены из-за других факторов, на которые нам не всегда будет удобно отвлекаться на занятиях. Но с живыми данными мы тоже обязательно будем работать! В том числе, они будут доступны вам в домашних заданиях :)</p>
+<p>Теперь смоделируем небольшую симуляцию по мотивам изученого материала.</p>
+<div id="подготовка-данных" class="section level3" number="2.5.1">
+<h3><span class="header-section-number">2.5.1</span> 4.1. Подготовка данных</h3>
+<p>Давайте смоделируем гипотетическую ситуацию. Мы хотим оценить величину эффекта от использование сайта с расписанием <a href="https://cacs.ws/">cacs.ws</a> на свободное время студента.</p>
+<p>Предположим, что наша экспериментальная выборка состоит из 1000 человек:</p>
+<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="01-experiments.html#cb13-1" aria-hidden="true" tabindex="-1"></a>N <span class="ot">&lt;-</span> <span class="dv">1000</span></span></code></pre></div>
+<p>Для простоты у них будет всего две характеристики (<span class="math inline">\(X\)</span> – возраст и <span class="math inline">\(Z\)</span> – время в пути от дома до ЭФ), имеющих влияние на потенциальный исход (<span class="math inline">\(Y_0\)</span> и <span class="math inline">\(Y_1\)</span> – свободное время). При этом предположим, что реальный эффект воздействия равен <span class="math inline">\(\tau=15\)</span> минутам. Будем считать, что реальная зависимость потенциального исхода от ковариатов и тритмента выглядит следующим образом:</p>
+<ul>
+<li><span class="math inline">\(Y_0 = 240 - 3 \cdot X - Z + 15 \cdot \underbrace{T}_{= 0} + \varepsilon_0 = 120 - 3 \cdot X - Z + \varepsilon_0\)</span> - потенциальный исход, если <strong>не</strong> было оказано воздействие</li>
+<li><span class="math inline">\(Y_1 = 240 - 3 \cdot X - Z + 15 \cdot \underbrace{T}_{= 1} + \varepsilon_1 = 120 - 3 \cdot X - Z + 15 + \varepsilon_1\)</span> - потенциальный исход, если было оказано воздействие</li>
+</ul>
+<p>Сгенерируем <span class="math inline">\(X\)</span> и <span class="math inline">\(Z\)</span> случайным образом:</p>
+<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb14-1"><a href="01-experiments.html#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">123</span>)</span>
+<span id="cb14-2"><a href="01-experiments.html#cb14-2" aria-hidden="true" tabindex="-1"></a>X <span class="ot">&lt;-</span> <span class="fu">runif</span>(N, <span class="dv">18</span>, <span class="dv">25</span>)</span>
+<span id="cb14-3"><a href="01-experiments.html#cb14-3" aria-hidden="true" tabindex="-1"></a>Z <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(N, <span class="dv">60</span>, <span class="dv">20</span>)</span>
+<span id="cb14-4"><a href="01-experiments.html#cb14-4" aria-hidden="true" tabindex="-1"></a><span class="do">## Посмотрим на наши данные, нарисуем сразу 2 графика -- диаграмму разброса и гистограмму</span></span>
+<span id="cb14-5"><a href="01-experiments.html#cb14-5" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(<span class="at">mfrow=</span><span class="fu">c</span>(<span class="dv">2</span>,<span class="dv">2</span>)) <span class="co"># читаем буквально как матрицы -- 2 строки и 2 столбца</span></span>
+<span id="cb14-6"><a href="01-experiments.html#cb14-6" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(X)</span>
+<span id="cb14-7"><a href="01-experiments.html#cb14-7" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(X)</span>
+<span id="cb14-8"><a href="01-experiments.html#cb14-8" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(Z)</span>
+<span id="cb14-9"><a href="01-experiments.html#cb14-9" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(Z)</span></code></pre></div>
+<p><img src="_main_files/figure-html/%D0%93%D0%B5%D0%BD%D0%B5%D1%80%D0%B0%D1%86%D0%B8%D1%8F%20%D0%BA%D0%BE%D0%B2%D0%B0%D1%80%D0%B8%D0%B0%D1%82-1.png" width="672" /></p>
+<p>Также создадим случайные ошибки для каждого из типов индивидов:</p>
+<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb15-1"><a href="01-experiments.html#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">123</span>)</span>
+<span id="cb15-2"><a href="01-experiments.html#cb15-2" aria-hidden="true" tabindex="-1"></a>e0 <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(N<span class="sc">/</span><span class="dv">2</span>, <span class="dv">0</span>, <span class="dv">1</span>)</span>
+<span id="cb15-3"><a href="01-experiments.html#cb15-3" aria-hidden="true" tabindex="-1"></a>e1 <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(N<span class="sc">/</span><span class="dv">2</span>, <span class="dv">0</span>, <span class="dv">1</span>)</span>
+<span id="cb15-4"><a href="01-experiments.html#cb15-4" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(e0, <span class="at">col=</span><span class="st">&quot;red&quot;</span>)</span>
+<span id="cb15-5"><a href="01-experiments.html#cb15-5" aria-hidden="true" tabindex="-1"></a><span class="fu">points</span>(e1, <span class="at">col=</span><span class="st">&#39;blue&#39;</span>)</span></code></pre></div>
+<p><img src="_main_files/figure-html/%D0%93%D0%B5%D0%BD%D0%B5%D1%80%D0%B0%D1%86%D0%B8%D1%8F%20%D0%BE%D1%88%D0%B8%D0%B1%D0%BE%D0%BA-1.png" width="672" /></p>
+<p>Вспомогательно пронумеруем наши наблюдения:</p>
+<div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb16-1"><a href="01-experiments.html#cb16-1" aria-hidden="true" tabindex="-1"></a>number <span class="ot">&lt;-</span> <span class="dv">1</span><span class="sc">:</span>N</span></code></pre></div>
+<p>И соберем всё в общий датасет:</p>
+<div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb17-1"><a href="01-experiments.html#cb17-1" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">number =</span> number, <span class="at">X=</span>X, <span class="at">Z=</span>Z) <span class="co"># сшиваем столбики в data frame</span></span>
+<span id="cb17-2"><a href="01-experiments.html#cb17-2" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(data, <span class="dv">10</span>) <span class="co"># смотрим только первые несколько строк датасета</span></span></code></pre></div>
+<pre><code>##    number        X        Z
+## 1       1 20.01304 47.96214
+## 2       2 23.51814 40.12603
+## 3       3 20.86284 80.53570
+## 4       4 24.18112 75.02123
+## 5       5 24.58327 29.81667
+## 6       6 18.31890 58.09705
+## 7       7 21.69674 42.08104
+## 8       8 24.24693 18.58498
+## 9       9 21.86005 63.00240
+## 10     10 21.19630 58.41577</code></pre>
+</div>
+<div id="рандомизация" class="section level3" number="2.5.2">
+<h3><span class="header-section-number">2.5.2</span> 4.2. Рандомизация</h3>
+<p>Что касается рандомизации, то наша глобальная задача, используя разные функции придумать способ, как случайным образом разбить выборку на 2 группы. Существует огромное множество вариантов, как это можно сделать. Мы обсудим лишь несколько из них. На практике вы можете пользоваться как этими вариантами, так и придумать что-то своё.</p>
+<div id="использование-порядкового-номера" class="section level4" number="2.5.2.1">
+<h4><span class="header-section-number">2.5.2.1</span> 4.2.1. Использование порядкового номера</h4>
+<p>Первый вариант – просто взять половину наблюдений по их порядку расположения в датасете. Пусть воздействие будет оказано только на первую половину нашей выборки.</p>
+<div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb19-1"><a href="01-experiments.html#cb19-1" aria-hidden="true" tabindex="-1"></a>T1 <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fu">rep</span>(<span class="dv">1</span>,N<span class="sc">/</span><span class="dv">2</span>), <span class="fu">rep</span>(<span class="dv">0</span>,N<span class="sc">/</span><span class="dv">2</span>))</span>
+<span id="cb19-2"><a href="01-experiments.html#cb19-2" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(T1) <span class="co"># проверяем долю тритмента, должна получиться ровно половина</span></span></code></pre></div>
+<pre><code>## [1] 0.5</code></pre>
+<div class="sourceCode" id="cb21"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb21-1"><a href="01-experiments.html#cb21-1" aria-hidden="true" tabindex="-1"></a>data<span class="sc">$</span>T1 <span class="ot">&lt;-</span> T1 <span class="co"># добавляем переменную в датасет</span></span></code></pre></div>
+<p>Тут мы воспользовались функцией <code>c(...)</code>, которая позволяет объединить величины внутри неё в вектор, и функцией <code>rep(x;times)</code> которая повторяет величину <span class="math inline">\(x\)</span> столько раз, сколько указано в величине <span class="math inline">\(times\)</span>.</p>
+<p>Второй вариант, который практически дублирует первый, но немного отличается – мы можем взять каждое второе наблюдение:</p>
+<div class="sourceCode" id="cb22"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb22-1"><a href="01-experiments.html#cb22-1" aria-hidden="true" tabindex="-1"></a>T2 <span class="ot">&lt;-</span> <span class="fu">rep</span>(<span class="dv">0</span><span class="sc">:</span><span class="dv">1</span>, N<span class="sc">/</span><span class="dv">2</span>)</span>
+<span id="cb22-2"><a href="01-experiments.html#cb22-2" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(T2) <span class="co"># проверяем долю тритмента, должна получиться ровно половина</span></span></code></pre></div>
+<pre><code>## [1] 0.5</code></pre>
+<div class="sourceCode" id="cb24"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb24-1"><a href="01-experiments.html#cb24-1" aria-hidden="true" tabindex="-1"></a>data<span class="sc">$</span>T2 <span class="ot">&lt;-</span> T2 <span class="co"># добавляем переменную в датасет</span></span></code></pre></div>
+</div>
+<div id="использование-свойств-распределений" class="section level4" number="2.5.2.2">
+<h4><span class="header-section-number">2.5.2.2</span> 4.2.2. Использование свойств распределений</h4>
+<p>Логично, что если мы хотим случайным образом присвоить наблюдениям разные группы, то мы можем начать с того, что присвоим им случайные числа, которые мы потом разными способами переведем в бинарный формат, который уже будет соотвествовать конкретной группе. Протестируем этот способ на примере трех распределений – нормального, равномерного и биномиального.</p>
+<div id="равномерное-распределение" class="section level5" number="2.5.2.2.1">
+<h5><span class="header-section-number">2.5.2.2.1</span> 1) Равномерное распределение</h5>
+<div class="sourceCode" id="cb25"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb25-1"><a href="01-experiments.html#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">123</span>)</span>
+<span id="cb25-2"><a href="01-experiments.html#cb25-2" aria-hidden="true" tabindex="-1"></a>V1 <span class="ot">&lt;-</span> <span class="fu">runif</span>(N) <span class="co"># генерим вспомогательную переменную из равномерного распределения</span></span>
+<span id="cb25-3"><a href="01-experiments.html#cb25-3" aria-hidden="true" tabindex="-1"></a>T3 <span class="ot">&lt;-</span> <span class="fu">as.numeric</span>(V1 <span class="sc">&lt;</span> <span class="fu">median</span>(V1)) <span class="co">#генерим тритмент, отсекая половину выборки по медиане; as.numeric используется, чтобы перейти от логического типа (true, false) к численному (1 и 0)</span></span>
+<span id="cb25-4"><a href="01-experiments.html#cb25-4" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(T3) <span class="co"># проверяем долю тритмента, должна получиться ровно половина</span></span></code></pre></div>
+<pre><code>## [1] 0.5</code></pre>
+<div class="sourceCode" id="cb27"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb27-1"><a href="01-experiments.html#cb27-1" aria-hidden="true" tabindex="-1"></a>data<span class="sc">$</span>T3 <span class="ot">&lt;-</span> T3 <span class="co"># добавляем переменную в датасет</span></span></code></pre></div>
+</div>
+<div id="нормальное-распределение" class="section level5" number="2.5.2.2.2">
+<h5><span class="header-section-number">2.5.2.2.2</span> 2) Нормальное распределение</h5>
+<div class="sourceCode" id="cb28"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb28-1"><a href="01-experiments.html#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">123</span>)</span>
+<span id="cb28-2"><a href="01-experiments.html#cb28-2" aria-hidden="true" tabindex="-1"></a>V2 <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(N) <span class="co"># генерим вспомогательную переменную из нормального распределения</span></span>
+<span id="cb28-3"><a href="01-experiments.html#cb28-3" aria-hidden="true" tabindex="-1"></a>T4 <span class="ot">&lt;-</span> <span class="fu">as.numeric</span>(V2<span class="sc">&gt;</span><span class="dv">0</span>) <span class="co">#генерим тритмент, отсекая половину выборки по знаку вспомогательной переменной; as.numeric используется, чтобы перейти от логического типа (true, false) к численному (1 и 0)</span></span>
+<span id="cb28-4"><a href="01-experiments.html#cb28-4" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(T4) <span class="co"># проверяем долю тритмента, должна получиться примерно половина</span></span></code></pre></div>
+<pre><code>##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+##   0.000   0.000   1.000   0.505   1.000   1.000</code></pre>
+<div class="sourceCode" id="cb30"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb30-1"><a href="01-experiments.html#cb30-1" aria-hidden="true" tabindex="-1"></a>data<span class="sc">$</span>T4 <span class="ot">&lt;-</span> T4 <span class="co"># добавляем переменную в датасет</span></span></code></pre></div>
+</div>
+<div id="биномиальное-распределение" class="section level5" number="2.5.2.2.3">
+<h5><span class="header-section-number">2.5.2.2.3</span> 3) Биномиальное распределение</h5>
+<div class="sourceCode" id="cb31"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb31-1"><a href="01-experiments.html#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">123</span>)</span>
+<span id="cb31-2"><a href="01-experiments.html#cb31-2" aria-hidden="true" tabindex="-1"></a>T5 <span class="ot">&lt;-</span> <span class="fu">rbinom</span>(N, <span class="dv">1</span>, <span class="fl">0.5</span>) <span class="co">#генерим тритмент, отсекая половину выборки по знаку вспомогательной переменной; as.numeric используется, чтобы перейти от логического типа (true, false) к численному (1 и 0)</span></span>
+<span id="cb31-3"><a href="01-experiments.html#cb31-3" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(T5) <span class="co"># проверяем долю тритмента, должна получиться примерно половина</span></span></code></pre></div>
+<pre><code>##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+##   0.000   0.000   0.000   0.493   1.000   1.000</code></pre>
+<div class="sourceCode" id="cb33"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb33-1"><a href="01-experiments.html#cb33-1" aria-hidden="true" tabindex="-1"></a>data<span class="sc">$</span>T5 <span class="ot">&lt;-</span> T5 <span class="co"># добавляем переменную в датасет</span></span></code></pre></div>
+</div>
+</div>
+<div id="использование-готовых-пакетов" class="section level4" number="2.5.2.3">
+<h4><span class="header-section-number">2.5.2.3</span> 4.2.3. Использование готовых пакетов</h4>
+<div class="sourceCode" id="cb34"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb34-1"><a href="01-experiments.html#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(<span class="st">&#39;experiment&#39;</span>) </span>
+<span id="cb34-2"><a href="01-experiments.html#cb34-2" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">123</span>)</span>
+<span id="cb34-3"><a href="01-experiments.html#cb34-3" aria-hidden="true" tabindex="-1"></a>rand <span class="ot">&lt;-</span> <span class="fu">randomize</span>(data, <span class="at">group=</span> <span class="fu">c</span>(<span class="st">&quot;Treat&quot;</span>, <span class="st">&quot;Control&quot;</span>))</span>
+<span id="cb34-4"><a href="01-experiments.html#cb34-4" aria-hidden="true" tabindex="-1"></a>T6 <span class="ot">&lt;-</span> <span class="fu">as.numeric</span>(rand<span class="sc">$</span>treatment <span class="sc">==</span> <span class="st">&quot;Treat&quot;</span>) <span class="co"># преобразовываем переменную в численный формат </span></span>
+<span id="cb34-5"><a href="01-experiments.html#cb34-5" aria-hidden="true" tabindex="-1"></a>data<span class="sc">$</span>T6 <span class="ot">&lt;-</span> T6 <span class="co"># добавляем переменную в датасет</span></span>
+<span id="cb34-6"><a href="01-experiments.html#cb34-6" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(data, <span class="dv">10</span>)</span></code></pre></div>
+<pre><code>##    number        X        Z T1 T2 T3 T4 T5 T6
+## 1       1 20.01304 47.96214  1  0  1  0  0  1
+## 2       2 23.51814 40.12603  1  1  0  0  1  1
+## 3       3 20.86284 80.53570  1  0  1  1  0  1
+## 4       4 24.18112 75.02123  1  1  0  1  1  0
+## 5       5 24.58327 29.81667  1  0  0  1  1  1
+## 6       6 18.31890 58.09705  1  1  1  1  0  0
+## 7       7 21.69674 42.08104  1  0  0  1  1  0
+## 8       8 24.24693 18.58498  1  1  0  0  1  1
+## 9       9 21.86005 63.00240  1  0  0  0  1  1
+## 10     10 21.19630 58.41577  1  1  1  0  0  1</code></pre>
+</div>
+<div id="хэш-функции" class="section level4" number="2.5.2.4">
+<h4><span class="header-section-number">2.5.2.4</span> 4.2.4. Хэш-функции</h4>
+<p>Существует ряд ситуаций, когда подходы к рандомизации, которые мы разобрали выше, работают не очень хорошо. Например, в вашу выборку добавилось несколько наблюдений, которые по какой-то причине добавились не в конец вашего датасета. В этом случае рандомизация не будет воспроизводимой, а тритмент и контрольная группы будут различаться. Однако есть способ решить эту сложность.</p>
+<p><strong>Хэш-функция</strong> (hash function) – функция, осуществляющая преобразование массива входных данных произвольной длины в выходную битовую строку установленной длины, выполняемое определённым алгоритмом. Преобразование, производимое хэш-функцией, называется хэшированием.</p>
+<p>Хэш-функции применяются в следующих случаях:</p>
+<ul>
+<li>при построении ассоциативных массивов;</li>
+<li>при поиске дубликатов в последовательностях наборов данных;</li>
+<li>при построении уникальных идентификаторов для наборов данных;</li>
+<li>при вычислении контрольных сумм от данных (сигнала) для последующего обнаружения в них ошибок (возникших случайно или внесённых намеренно), возникающих при хранении и/или передаче данных;</li>
+<li>при сохранении паролей в системах защиты в виде хэш-кода (для восстановления пароля - по хэш-коду требуется функция, являющаяся обратной по отношению к использованной хэш-функции);</li>
+<li>при выработке электронной подписи (на практике часто подписывается не само сообщение, а его “хэш-образ”);</li>
+<li>и др.</li>
+</ul>
+<p>Для нас важно то, что с помощью хэш-функции мы сможем взаимно однозначно переводить данные формата строки в число.</p>
+<p>Пример хэширования с помощью пакета <code>digest</code>:</p>
+<div class="sourceCode" id="cb36"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb36-1"><a href="01-experiments.html#cb36-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(<span class="st">&quot;digest&quot;</span>)</span>
+<span id="cb36-2"><a href="01-experiments.html#cb36-2" aria-hidden="true" tabindex="-1"></a>hash <span class="ot">&lt;-</span> <span class="fu">digest</span>(<span class="st">&#39;econometrics&#39;</span>, <span class="at">algo=</span><span class="st">&quot;murmur32&quot;</span>)</span>
+<span id="cb36-3"><a href="01-experiments.html#cb36-3" aria-hidden="true" tabindex="-1"></a>hash</span></code></pre></div>
+<pre><code>## [1] &quot;24b6de5a&quot;</code></pre>
+<p>Пакет <code>digest</code> применяет хеш-функцию к произвольным объектам R. В пакете реализовано много разных алгоритмов преобразований, однако мы будем использовать алгоритм “murmur32” (подробнее почитать можно <a href="https://en.wikipedia.org/wiki/MurmurHash">тут</a>). Этот алгоритм совершенно не подходит для криптографических целей, но зато идеально подходит нам, поскольку он 32-битный, что позволяет нам перевести полученный хэш-код в целое число.</p>
+<p>Прежде чем начать разбирать пример, немного отвлечемся на техническую полезную вещь – функцию <code>sapply()</code>.</p>
+<p>Про семейство <code>apply</code> функций рекомендую почитать подробнее на русском <a href="https://r-analytics.blogspot.com/2012/11/r-apply.html">тут</a> или <a href="https://habr.com/ru/company/infopulse/blog/274611/">тут</a>, а на английском <a href="https://www.datacamp.com/community/tutorials/r-tutorial-apply-family?utm_source=adwords_ppc&amp;utm_campaignid=1658343524&amp;utm_adgroupid=63833882055&amp;utm_device=c&amp;utm_keyword=%2Bsapply%20%2Br&amp;utm_matchtype=b&amp;utm_network=g&amp;utm_adpostion=&amp;utm_creative=319558765414&amp;utm_targetid=aud-299261629574:kwd-376025357755&amp;utm_loc_interest_ms=&amp;utm_loc_physical_ms=1011959&amp;gclid=Cj0KCQjwpf2IBhDkARIsAGVo0D2Dejgd7zLNCmHPdijs2FrRlbj7z_ti_UTn_gYCWqCl8NnC98V6HOsaAljMEALw_wcB">тут</a>.</p>
+<p>Прелесть функции <code>sapply()</code> состоит в том, что она позволяет нам избежать громоздких циклов при написании кода и ускорить вычисления благодаря “векторной ориентированности” языка R. Например, функция позволяет нам найти минимальное и максимальное значение для каждой из ковариат:</p>
+<div class="sourceCode" id="cb38"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb38-1"><a href="01-experiments.html#cb38-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sapply</span>(<span class="fu">list</span>(X,Z), min)</span></code></pre></div>
+<pre><code>## [1] 18.003257  3.804506</code></pre>
+<div class="sourceCode" id="cb40"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb40-1"><a href="01-experiments.html#cb40-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sapply</span>(<span class="fu">list</span>(X,Z), max)</span></code></pre></div>
+<pre><code>## [1]  24.99583 127.80742</code></pre>
+<p>То есть функция проводит однотипную операцию (по сути вложенную функцию) над каждым элементом списка. Если кто-то хорошо владеет python, то аналогичной функцией там является <code>map()</code>.</p>
+<p>Вернемся к нашей симуляции. Изначально мы это все затеяли, чтобы сделать хорошую рандомизацию. Сначала хэшируем номера наших наблюдений. Так делать не очень хорошо, обычно, для хэширования данных используют ФИО и/или СНИЛС, но мы не будем ради этого громоздить генерацию еще одной переменной. Для иллюстрации просто воспользуемся номерами, это тоже сработает.</p>
+<div class="sourceCode" id="cb42"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb42-1"><a href="01-experiments.html#cb42-1" aria-hidden="true" tabindex="-1"></a>hashes <span class="ot">&lt;-</span> <span class="fu">sapply</span>(data<span class="sc">$</span>number, <span class="cf">function</span>(x) {<span class="fu">digest</span>(x, <span class="at">algo=</span><span class="st">&quot;murmur32&quot;</span>)}) <span class="co"># хэшируем строчки</span></span>
+<span id="cb42-2"><a href="01-experiments.html#cb42-2" aria-hidden="true" tabindex="-1"></a>hashes[<span class="dv">1</span><span class="sc">:</span><span class="dv">20</span>]</span></code></pre></div>
+<pre><code>##  [1] &quot;5e6216f3&quot; &quot;8b8b3789&quot; &quot;ad1bf356&quot; &quot;b2df92b2&quot; &quot;1d1b8e3a&quot; &quot;98d09cab&quot;
+##  [7] &quot;2e366c5a&quot; &quot;4d110361&quot; &quot;91d6bfe0&quot; &quot;f568e543&quot; &quot;08bd74cd&quot; &quot;e979af4b&quot;
+## [13] &quot;a82e5827&quot; &quot;485cbd08&quot; &quot;bc4e5bd8&quot; &quot;95f68430&quot; &quot;7180d744&quot; &quot;da414596&quot;
+## [19] &quot;70aa2885&quot; &quot;afd0ffd2&quot;</code></pre>
+<p>Далее нужно перевести получившиеся строчки в цифровой числовой. Функция <code>strtoi()</code> конвертирует строковое представление числа, которое хранится в строке, в длинное целое.</p>
+<div class="sourceCode" id="cb44"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb44-1"><a href="01-experiments.html#cb44-1" aria-hidden="true" tabindex="-1"></a>result <span class="ot">&lt;-</span> <span class="fu">strtoi</span>(<span class="fu">substring</span>(hashes, <span class="dv">2</span>), <span class="at">base=</span><span class="dv">16</span>) </span>
+<span id="cb44-2"><a href="01-experiments.html#cb44-2" aria-hidden="true" tabindex="-1"></a>result[<span class="dv">1</span><span class="sc">:</span><span class="dv">20</span>]</span></code></pre></div>
+<pre><code>##  [1] 241309427 193673097 219935574  48206514 219909690 147889323 238447706
+##  [8] 219218785  30851040  90760515 146633933 158969675 137254951 140295432
+## [15] 206461912 100041776  25220932 172049814  11151493 265355218</code></pre>
+<p>Далее, используя эти числа, нужно как-то разбить выборку на тритмент и контроль. Будем смотреть на последнюю цифру, если она меньше 5, то наблюдение попадет в тритмент, если больше – в контроль.</p>
+<div class="sourceCode" id="cb46"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb46-1"><a href="01-experiments.html#cb46-1" aria-hidden="true" tabindex="-1"></a>T7 <span class="ot">&lt;-</span> result <span class="sc">%%</span> <span class="dv">10</span> <span class="sc">&lt;</span> <span class="dv">5</span> <span class="co"># берем остаток от деления на 10 (получится последняя цифра) и сравниваем его с 5</span></span>
+<span id="cb46-2"><a href="01-experiments.html#cb46-2" aria-hidden="true" tabindex="-1"></a>data<span class="sc">$</span>T7 <span class="ot">&lt;-</span> <span class="fu">as.numeric</span>(T7) <span class="co"># переводим из логического типа в числовой и добавляем в датасет</span></span>
+<span id="cb46-3"><a href="01-experiments.html#cb46-3" aria-hidden="true" tabindex="-1"></a>data<span class="sc">$</span>T7[<span class="dv">1</span><span class="sc">:</span><span class="dv">20</span>]</span></code></pre></div>
+<pre><code>##  [1] 0 0 1 1 1 1 0 0 1 0 1 0 1 1 1 0 1 1 1 0</code></pre>
+<p>Проверим нашу рандомизацию на сбалансированность:</p>
+<div class="sourceCode" id="cb48"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb48-1"><a href="01-experiments.html#cb48-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(data)</span></code></pre></div>
+<pre><code>##      number             X               Z                 T1            T2     
+##  Min.   :   1.0   Min.   :18.00   Min.   :  3.805   Min.   :0.0   Min.   :0.0  
+##  1st Qu.: 250.8   1st Qu.:19.78   1st Qu.: 46.232   1st Qu.:0.0   1st Qu.:0.0  
+##  Median : 500.5   Median :21.43   Median : 60.576   Median :0.5   Median :0.5  
+##  Mean   : 500.5   Mean   :21.48   Mean   : 60.239   Mean   :0.5   Mean   :0.5  
+##  3rd Qu.: 750.2   3rd Qu.:23.23   3rd Qu.: 73.101   3rd Qu.:1.0   3rd Qu.:1.0  
+##  Max.   :1000.0   Max.   :25.00   Max.   :127.807   Max.   :1.0   Max.   :1.0  
+##        T3            T4              T5              T6            T7       
+##  Min.   :0.0   Min.   :0.000   Min.   :0.000   Min.   :0.0   Min.   :0.000  
+##  1st Qu.:0.0   1st Qu.:0.000   1st Qu.:0.000   1st Qu.:0.0   1st Qu.:0.000  
+##  Median :0.5   Median :1.000   Median :0.000   Median :0.5   Median :1.000  
+##  Mean   :0.5   Mean   :0.505   Mean   :0.493   Mean   :0.5   Mean   :0.508  
+##  3rd Qu.:1.0   3rd Qu.:1.000   3rd Qu.:1.000   3rd Qu.:1.0   3rd Qu.:1.000  
+##  Max.   :1.0   Max.   :1.000   Max.   :1.000   Max.   :1.0   Max.   :1.000</code></pre>
+</div>
+<div id="реализация-исходов" class="section level4" number="2.5.2.5">
+<h4><span class="header-section-number">2.5.2.5</span> 4.3. Реализация исходов</h4>
+<p>Посчитаем потенциальные исходы:</p>
+<div class="sourceCode" id="cb50"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb50-1"><a href="01-experiments.html#cb50-1" aria-hidden="true" tabindex="-1"></a>Y0 <span class="ot">&lt;-</span> <span class="dv">240</span> <span class="sc">-</span> <span class="dv">3</span><span class="sc">*</span>X <span class="sc">-</span> Z <span class="sc">+</span> <span class="dv">15</span><span class="sc">*</span><span class="dv">0</span> <span class="sc">+</span> e0 <span class="co"># T=0</span></span>
+<span id="cb50-2"><a href="01-experiments.html#cb50-2" aria-hidden="true" tabindex="-1"></a>Y1 <span class="ot">&lt;-</span> <span class="dv">240</span> <span class="sc">-</span> <span class="dv">3</span><span class="sc">*</span>X <span class="sc">-</span> Z <span class="sc">+</span> <span class="dv">15</span><span class="sc">*</span><span class="dv">1</span> <span class="sc">+</span> e1 <span class="co"># T=1</span></span>
+<span id="cb50-3"><a href="01-experiments.html#cb50-3" aria-hidden="true" tabindex="-1"></a>data<span class="sc">$</span>Y0 <span class="ot">&lt;-</span> Y0 <span class="co"># добавляем переменные в датасет</span></span>
+<span id="cb50-4"><a href="01-experiments.html#cb50-4" aria-hidden="true" tabindex="-1"></a>data<span class="sc">$</span>Y1 <span class="ot">&lt;-</span> Y1</span></code></pre></div>
+<p>А также наблюдаемые исходы:</p>
+<div class="sourceCode" id="cb51"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb51-1"><a href="01-experiments.html#cb51-1" aria-hidden="true" tabindex="-1"></a>data<span class="sc">$</span>Y <span class="ot">&lt;-</span> T1<span class="sc">*</span>Y1 <span class="sc">+</span> (<span class="dv">1</span><span class="sc">-</span>T1)<span class="sc">*</span>Y0</span></code></pre></div>
+</div>
+</div>
+<div id="считаем-эффект" class="section level3" number="2.5.3">
+<h3><span class="header-section-number">2.5.3</span> 4.3. Считаем эффект</h3>
+<p>Когда данные подготовлены, мы забываем, что что-то о них знали :)</p>
+<p>С данного момента мы действуем согласно предпосылке, что мы знаем только <span class="math inline">\(Y\)</span>, <span class="math inline">\(X\)</span> и <span class="math inline">\(T\)</span>.</p>
+<p>Поскольку мы знаем, что тритмент распределялся среди наблюдений случайно, мы можем сделать вывод, что предпосылка о независимости воздействия выполнена. Также мы знаем, что данные устроены так, что SUTVA тоже выполнена. Следовательно, можем использовать обычную разницу в средних, чтобы оценить эффнект воздействия:</p>
+<p><span class="math inline">\(\widehat{ATE} = \overline{Y_1} - \overline{Y_0}\)</span></p>
+<div class="sourceCode" id="cb52"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb52-1"><a href="01-experiments.html#cb52-1" aria-hidden="true" tabindex="-1"></a>ATE_hat <span class="ot">&lt;-</span> <span class="fu">mean</span>(data<span class="sc">$</span>Y[T1<span class="sc">==</span><span class="dv">1</span>]) <span class="sc">-</span> <span class="fu">mean</span>(data<span class="sc">$</span>Y[T1<span class="sc">==</span><span class="dv">0</span>])</span>
+<span id="cb52-2"><a href="01-experiments.html#cb52-2" aria-hidden="true" tabindex="-1"></a>ATE_hat</span></code></pre></div>
+<pre><code>## [1] 15.61754</code></pre>
+<p>Из курса ЭКМ-2 помним, что то же самое можно было бы получить, с помощью обычного парного МНК:</p>
+<div class="sourceCode" id="cb54"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb54-1"><a href="01-experiments.html#cb54-1" aria-hidden="true" tabindex="-1"></a>model1 <span class="ot">&lt;-</span> <span class="fu">lm</span>(Y <span class="sc">~</span> T1, <span class="at">data=</span>data)</span>
+<span id="cb54-2"><a href="01-experiments.html#cb54-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(model1)</span></code></pre></div>
+<pre><code>## 
+## Call:
+## lm(formula = Y ~ T1, data = data)
+## 
+## Residuals:
+##     Min      1Q  Median      3Q     Max 
+## -76.984 -14.469  -0.314  13.235  60.998 
+## 
+## Coefficients:
+##             Estimate Std. Error t value Pr(&gt;|t|)    
+## (Intercept) 115.0259     0.9094  126.49   &lt;2e-16 ***
+## T1           15.6175     1.2861   12.14   &lt;2e-16 ***
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+## 
+## Residual standard error: 20.33 on 998 degrees of freedom
+## Multiple R-squared:  0.1287, Adjusted R-squared:  0.1279 
+## F-statistic: 147.5 on 1 and 998 DF,  p-value: &lt; 2.2e-16</code></pre>
+<p>Если обе предпосылки выполнены, то оценка должна быть несмещенной даже без контрольных переменных (ковариат). Попробуем их добавить и сравним оценки эффекта:</p>
+<div class="sourceCode" id="cb56"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb56-1"><a href="01-experiments.html#cb56-1" aria-hidden="true" tabindex="-1"></a>model2 <span class="ot">&lt;-</span> <span class="fu">lm</span>(Y <span class="sc">~</span> T1 <span class="sc">+</span> X <span class="sc">+</span> Z, <span class="at">data=</span>data)</span>
+<span id="cb56-2"><a href="01-experiments.html#cb56-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(model2)</span></code></pre></div>
+<pre><code>## 
+## Call:
+## lm(formula = Y ~ T1 + X + Z, data = data)
+## 
+## Residuals:
+##     Min      1Q  Median      3Q     Max 
+## -2.9500 -0.4804 -0.0218  0.4296  3.2849 
+## 
+## Coefficients:
+##               Estimate Std. Error t value Pr(&gt;|t|)    
+## (Intercept) 238.445186   0.296642   803.8   &lt;2e-16 ***
+## T1           14.978356   0.052761   283.9   &lt;2e-16 ***
+## X            -3.001684   0.013116  -228.9   &lt;2e-16 ***
+## Z            -0.973141   0.001318  -738.4   &lt;2e-16 ***
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+## 
+## Residual standard error: 0.8341 on 996 degrees of freedom
+## Multiple R-squared:  0.9985, Adjusted R-squared:  0.9985 
+## F-statistic: 2.266e+05 on 3 and 996 DF,  p-value: &lt; 2.2e-16</code></pre>
+<p>Видим, что результаты устойчивы, величина эффекта практически не изменилась, но наша первая оценка все-таки была слегка завышеная, значит небольшое смещение было. Проверим контрольную и тритмент группу на “похожесть”, то есть проведем баланс ковариатов.</p>
+<p>Далее в качестве упраженения посчитаем средние эффекты на разных группах:</p>
+<div class="sourceCode" id="cb58"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb58-1"><a href="01-experiments.html#cb58-1" aria-hidden="true" tabindex="-1"></a>ATT <span class="ot">&lt;-</span> <span class="fu">mean</span>(data<span class="sc">$</span>Y1[data<span class="sc">$</span>T1 <span class="sc">==</span> <span class="dv">1</span>] <span class="sc">-</span> data<span class="sc">$</span>Y0[data<span class="sc">$</span>T1 <span class="sc">==</span> <span class="dv">1</span>])</span>
+<span id="cb58-2"><a href="01-experiments.html#cb58-2" aria-hidden="true" tabindex="-1"></a>ATT</span></code></pre></div>
+<pre><code>## [1] 14.96307</code></pre>
+<div class="sourceCode" id="cb60"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb60-1"><a href="01-experiments.html#cb60-1" aria-hidden="true" tabindex="-1"></a>ATnT <span class="ot">&lt;-</span> <span class="fu">mean</span>(data<span class="sc">$</span>Y1[data<span class="sc">$</span>T1 <span class="sc">==</span> <span class="dv">0</span>] <span class="sc">-</span> data<span class="sc">$</span>Y0[data<span class="sc">$</span>T1 <span class="sc">==</span> <span class="dv">0</span>])</span>
+<span id="cb60-2"><a href="01-experiments.html#cb60-2" aria-hidden="true" tabindex="-1"></a>ATnT</span></code></pre></div>
+<pre><code>## [1] 14.96307</code></pre>
+<p>Получили, то что и должны были получить – ATT = ATnT. Если мы вернемся в раздел, где мы подготовливали данные, то увидим, что в двух потенциальных исходах мы “зашифровали” одинаковый эффект:</p>
+<ul>
+<li><span class="math inline">\(Y_0 = 120 - 3 \cdot X - Z + 15 \cdot \underbrace{T}_{= 0} + \varepsilon_0 = 120 - 3 \cdot X - Z + \varepsilon_0\)</span></li>
+<li><span class="math inline">\(Y_1 = 120 - 3 \cdot X - Z + 15 \cdot \underbrace{T}_{= 1} + \varepsilon_1 = 120 - 3 \cdot X - Z + 15 + \varepsilon_1\)</span></li>
+</ul>
+<p>Содержательно это иллюстрирует то, что эффект воздействия гомогенен, то есть <span class="math inline">\(\text{Heterogeneous treatment effect bias} = (1-\pi)(ATT - ATnT) = 0\)</span>.</p>
+</div>
+<div id="баланс-ковариатов" class="section level3" number="2.5.4">
+<h3><span class="header-section-number">2.5.4</span> 4.4. Баланс ковариатов</h3>
+<p>Теперь проверим насколько наша рандомизация оказалась хорошей. Сравним средние значения ковариат в двух группах.</p>
+<div id="сравнение-средних" class="section level4" number="2.5.4.1">
+<h4><span class="header-section-number">2.5.4.1</span> 4.4.1. Сравнение средних</h4>
+<div class="sourceCode" id="cb62"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb62-1"><a href="01-experiments.html#cb62-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(data<span class="sc">$</span>X[T1<span class="sc">==</span><span class="dv">1</span>])<span class="sc">-</span><span class="fu">mean</span>(data<span class="sc">$</span>X[T1<span class="sc">==</span><span class="dv">0</span>])</span></code></pre></div>
+<pre><code>## [1] -0.02791759</code></pre>
+<div class="sourceCode" id="cb64"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb64-1"><a href="01-experiments.html#cb64-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(data<span class="sc">$</span>Z[T1<span class="sc">==</span><span class="dv">1</span>])<span class="sc">-</span><span class="fu">mean</span>(data<span class="sc">$</span>Z[T1<span class="sc">==</span><span class="dv">0</span>])</span></code></pre></div>
+<pre><code>## [1] -0.5707093</code></pre>
+<p>Это не очень информативный способ, но если мы вспомним, что порядок значений ковариат измерялся десятками, то можно сделать вывод, что группы в среднем похожи.</p>
+</div>
+<div id="тест-стьюдента" class="section level4" number="2.5.4.2">
+<h4><span class="header-section-number">2.5.4.2</span> 4.4.2. Тест Стьюдента</h4>
+<p>А теперь проведем тест на разницу в средних с помощью формального t-теста Стьюдента:</p>
+<ul>
+<li><span class="math inline">\(H_0:\)</span> среднее значение параметра в группах одинаковое, группы не различаются</li>
+<li><span class="math inline">\(H_1:\)</span> среднее значение параметра в группах разное, группы различаются</li>
+</ul>
+<div class="sourceCode" id="cb66"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb66-1"><a href="01-experiments.html#cb66-1" aria-hidden="true" tabindex="-1"></a><span class="fu">t.test</span>(data<span class="sc">$</span>X[T1<span class="sc">==</span><span class="dv">1</span>], data<span class="sc">$</span>X[T1<span class="sc">==</span><span class="dv">0</span>])</span></code></pre></div>
+<pre><code>## 
+##  Welch Two Sample t-test
+## 
+## data:  data$X[T1 == 1] and data$X[T1 == 0]
+## t = -0.21924, df = 997.51, p-value = 0.8265
+## alternative hypothesis: true difference in means is not equal to 0
+## 95 percent confidence interval:
+##  -0.2777933  0.2219581
+## sample estimates:
+## mean of x mean of y 
+##  21.46699  21.49490</code></pre>
+<div class="sourceCode" id="cb68"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb68-1"><a href="01-experiments.html#cb68-1" aria-hidden="true" tabindex="-1"></a><span class="fu">t.test</span>(data<span class="sc">$</span>Z[T1<span class="sc">==</span><span class="dv">1</span>], data<span class="sc">$</span>Z[T1<span class="sc">==</span><span class="dv">0</span>])</span></code></pre></div>
+<pre><code>## 
+##  Welch Two Sample t-test
+## 
+## data:  data$Z[T1 == 1] and data$Z[T1 == 0]
+## t = -0.45032, df = 997.68, p-value = 0.6526
+## alternative hypothesis: true difference in means is not equal to 0
+## 95 percent confidence interval:
+##  -3.057656  1.916238
+## sample estimates:
+## mean of x mean of y 
+##  59.95331  60.52402</code></pre>
+<p>Согласно значению p-value мы принимаем <span class="math inline">\(H_0\)</span> и делаем вывод, что группы одинаковые.</p>
+</div>
+<div id="использование-готовых-пакетов-1" class="section level4" number="2.5.4.3">
+<h4><span class="header-section-number">2.5.4.3</span> 4.4.2. Использование готовых пакетов</h4>
+<div class="sourceCode" id="cb70"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb70-1"><a href="01-experiments.html#cb70-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(<span class="st">&quot;tableone&quot;</span>)</span>
+<span id="cb70-2"><a href="01-experiments.html#cb70-2" aria-hidden="true" tabindex="-1"></a>table1 <span class="ot">&lt;-</span> <span class="fu">CreateTableOne</span>(<span class="at">vars=</span><span class="fu">c</span>(<span class="st">&quot;X&quot;</span>, <span class="st">&quot;Z&quot;</span>), <span class="at">strata=</span><span class="st">&quot;T1&quot;</span>, <span class="at">data=</span>data, <span class="at">test=</span><span class="cn">TRUE</span>)</span>
+<span id="cb70-3"><a href="01-experiments.html#cb70-3" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(table1)</span></code></pre></div>
+<pre><code>##                Stratified by T1
+##                 0             1             p      test
+##   n               500           500                    
+##   X (mean (SD)) 21.49 (2.04)  21.47 (1.99)   0.827     
+##   Z (mean (SD)) 60.52 (19.86) 59.95 (20.22)  0.653</code></pre>
+</div>
+</div>
+<div id="функции" class="section level3" number="2.5.5">
+<h3><span class="header-section-number">2.5.5</span> 4.5 Функции</h3>
+<p>Можно ли было бы сделать все то же самое за меньшее число строчек кода и время? Конечно, можно. Более того, если бы похожую процедуру вам пришлось бы по каким-то причинам проводить несколько раз, например, когда у вас несколько экспериментов, функция для вас просто была бы незаменимым помощником. Попробуем переписать все то же самое в несколько функций.</p>
+<ol style="list-style-type: decimal">
+<li>Функция для генерации данных</li>
+</ol>
+<div class="sourceCode" id="cb72"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb72-1"><a href="01-experiments.html#cb72-1" aria-hidden="true" tabindex="-1"></a>generate_data <span class="ot">&lt;-</span> <span class="cf">function</span>(N){</span>
+<span id="cb72-2"><a href="01-experiments.html#cb72-2" aria-hidden="true" tabindex="-1"></a>  N<span class="ot">=</span>N</span>
+<span id="cb72-3"><a href="01-experiments.html#cb72-3" aria-hidden="true" tabindex="-1"></a>  X <span class="ot">&lt;-</span> <span class="fu">runif</span>(N, <span class="dv">18</span>, <span class="dv">25</span>)</span>
+<span id="cb72-4"><a href="01-experiments.html#cb72-4" aria-hidden="true" tabindex="-1"></a>  Z <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(N, <span class="dv">60</span>, <span class="dv">20</span>)</span>
+<span id="cb72-5"><a href="01-experiments.html#cb72-5" aria-hidden="true" tabindex="-1"></a>  e0 <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(N<span class="sc">/</span><span class="dv">2</span>, <span class="dv">0</span>, <span class="dv">1</span>)</span>
+<span id="cb72-6"><a href="01-experiments.html#cb72-6" aria-hidden="true" tabindex="-1"></a>  e1 <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(N<span class="sc">/</span><span class="dv">2</span>, <span class="dv">0</span>, <span class="dv">1</span>)</span>
+<span id="cb72-7"><a href="01-experiments.html#cb72-7" aria-hidden="true" tabindex="-1"></a>  number <span class="ot">&lt;-</span> <span class="dv">1</span><span class="sc">:</span>N</span>
+<span id="cb72-8"><a href="01-experiments.html#cb72-8" aria-hidden="true" tabindex="-1"></a>  Y0 <span class="ot">&lt;-</span> <span class="dv">240</span> <span class="sc">-</span> <span class="dv">3</span><span class="sc">*</span>X <span class="sc">-</span> Z <span class="sc">+</span> <span class="dv">15</span><span class="sc">*</span><span class="dv">0</span> <span class="sc">+</span> e0 </span>
+<span id="cb72-9"><a href="01-experiments.html#cb72-9" aria-hidden="true" tabindex="-1"></a>  Y1 <span class="ot">&lt;-</span> <span class="dv">240</span> <span class="sc">-</span> <span class="dv">3</span><span class="sc">*</span>X <span class="sc">-</span> Z <span class="sc">+</span> <span class="dv">15</span><span class="sc">*</span><span class="dv">1</span> <span class="sc">+</span> e1 </span>
+<span id="cb72-10"><a href="01-experiments.html#cb72-10" aria-hidden="true" tabindex="-1"></a>  data <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">number =</span> number, <span class="at">X=</span>X, <span class="at">Z=</span>Z, <span class="at">Y0=</span>Y0, <span class="at">Y1=</span>Y1)</span>
+<span id="cb72-11"><a href="01-experiments.html#cb72-11" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
+<ol start="2" style="list-style-type: decimal">
+<li>Функция для рандомизации</li>
+</ol>
+<div class="sourceCode" id="cb73"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb73-1"><a href="01-experiments.html#cb73-1" aria-hidden="true" tabindex="-1"></a>randomization <span class="ot">&lt;-</span> <span class="cf">function</span>(data, type){</span>
+<span id="cb73-2"><a href="01-experiments.html#cb73-2" aria-hidden="true" tabindex="-1"></a>  N <span class="ot">&lt;-</span> <span class="fu">nrow</span>(data)</span>
+<span id="cb73-3"><a href="01-experiments.html#cb73-3" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> (type<span class="sc">==</span><span class="st">&#39;in order&#39;</span>){</span>
+<span id="cb73-4"><a href="01-experiments.html#cb73-4" aria-hidden="true" tabindex="-1"></a>    T <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fu">rep</span>(<span class="dv">1</span>,N<span class="sc">/</span><span class="dv">2</span>), <span class="fu">rep</span>(<span class="dv">0</span>,N<span class="sc">/</span><span class="dv">2</span>))</span>
+<span id="cb73-5"><a href="01-experiments.html#cb73-5" aria-hidden="true" tabindex="-1"></a>    data<span class="sc">$</span>T <span class="ot">&lt;-</span> T</span>
+<span id="cb73-6"><a href="01-experiments.html#cb73-6" aria-hidden="true" tabindex="-1"></a>  } <span class="cf">else</span> <span class="cf">if</span> (type<span class="sc">==</span><span class="st">&#39;by turns&#39;</span>){</span>
+<span id="cb73-7"><a href="01-experiments.html#cb73-7" aria-hidden="true" tabindex="-1"></a>    T <span class="ot">&lt;-</span> <span class="fu">rep</span>(<span class="dv">0</span><span class="sc">:</span><span class="dv">1</span>, N<span class="sc">/</span><span class="dv">2</span>)</span>
+<span id="cb73-8"><a href="01-experiments.html#cb73-8" aria-hidden="true" tabindex="-1"></a>    data<span class="sc">$</span>T <span class="ot">&lt;-</span> T</span>
+<span id="cb73-9"><a href="01-experiments.html#cb73-9" aria-hidden="true" tabindex="-1"></a>  } <span class="cf">else</span> <span class="cf">if</span> (type<span class="sc">==</span><span class="st">&#39;unif&#39;</span>){</span>
+<span id="cb73-10"><a href="01-experiments.html#cb73-10" aria-hidden="true" tabindex="-1"></a>    V <span class="ot">&lt;-</span> <span class="fu">runif</span>(N)</span>
+<span id="cb73-11"><a href="01-experiments.html#cb73-11" aria-hidden="true" tabindex="-1"></a>    T <span class="ot">&lt;-</span> <span class="fu">as.numeric</span>(V1 <span class="sc">&lt;</span> <span class="fu">median</span>(V1))</span>
+<span id="cb73-12"><a href="01-experiments.html#cb73-12" aria-hidden="true" tabindex="-1"></a>    data<span class="sc">$</span>T <span class="ot">&lt;-</span> T</span>
+<span id="cb73-13"><a href="01-experiments.html#cb73-13" aria-hidden="true" tabindex="-1"></a>  } <span class="cf">else</span> <span class="cf">if</span> (type<span class="sc">==</span><span class="st">&#39;norm&#39;</span>){</span>
+<span id="cb73-14"><a href="01-experiments.html#cb73-14" aria-hidden="true" tabindex="-1"></a>    V <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(N) </span>
+<span id="cb73-15"><a href="01-experiments.html#cb73-15" aria-hidden="true" tabindex="-1"></a>    T <span class="ot">&lt;-</span> <span class="fu">as.numeric</span>(V2<span class="sc">&gt;</span><span class="dv">0</span>)</span>
+<span id="cb73-16"><a href="01-experiments.html#cb73-16" aria-hidden="true" tabindex="-1"></a>    data<span class="sc">$</span>T <span class="ot">&lt;-</span> T</span>
+<span id="cb73-17"><a href="01-experiments.html#cb73-17" aria-hidden="true" tabindex="-1"></a>  } <span class="cf">else</span> <span class="cf">if</span> (type<span class="sc">==</span><span class="st">&#39;binom&#39;</span>){</span>
+<span id="cb73-18"><a href="01-experiments.html#cb73-18" aria-hidden="true" tabindex="-1"></a>    T <span class="ot">&lt;-</span> <span class="fu">rbinom</span>(N, <span class="dv">1</span>, <span class="fl">0.5</span>)</span>
+<span id="cb73-19"><a href="01-experiments.html#cb73-19" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb73-20"><a href="01-experiments.html#cb73-20" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(data)</span>
+<span id="cb73-21"><a href="01-experiments.html#cb73-21" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
+<ol start="3" style="list-style-type: decimal">
+<li>Функция для расчета наблюдаемого исхода</li>
+</ol>
+<div class="sourceCode" id="cb74"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb74-1"><a href="01-experiments.html#cb74-1" aria-hidden="true" tabindex="-1"></a>outcome <span class="ot">&lt;-</span> <span class="cf">function</span>(data){</span>
+<span id="cb74-2"><a href="01-experiments.html#cb74-2" aria-hidden="true" tabindex="-1"></a>  observed_data <span class="ot">&lt;-</span> data</span>
+<span id="cb74-3"><a href="01-experiments.html#cb74-3" aria-hidden="true" tabindex="-1"></a>  observed_data<span class="sc">$</span>Y <span class="ot">&lt;-</span> data<span class="sc">$</span>T<span class="sc">*</span>observed_data<span class="sc">$</span>Y1 <span class="sc">+</span> (<span class="dv">1</span> <span class="sc">-</span> data<span class="sc">$</span>T)<span class="sc">*</span>observed_data<span class="sc">$</span>Y0</span>
+<span id="cb74-4"><a href="01-experiments.html#cb74-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(observed_data)</span>
+<span id="cb74-5"><a href="01-experiments.html#cb74-5" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
+<ol start="4" style="list-style-type: decimal">
+<li>Функция для оценки эффекта</li>
+</ol>
+<div class="sourceCode" id="cb75"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb75-1"><a href="01-experiments.html#cb75-1" aria-hidden="true" tabindex="-1"></a>estimate <span class="ot">&lt;-</span> <span class="cf">function</span>(data, response_variable) {</span>
+<span id="cb75-2"><a href="01-experiments.html#cb75-2" aria-hidden="true" tabindex="-1"></a>    m <span class="ot">&lt;-</span> <span class="fu">mean</span>(data[data<span class="sc">$</span>T<span class="sc">==</span><span class="dv">1</span>, response_variable])<span class="sc">-</span><span class="fu">mean</span>(data[data<span class="sc">$</span>T<span class="sc">==</span><span class="dv">0</span>, response_variable])</span>
+<span id="cb75-3"><a href="01-experiments.html#cb75-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">return</span>(m)</span>
+<span id="cb75-4"><a href="01-experiments.html#cb75-4" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
+<ol start="5" style="list-style-type: decimal">
+<li>Функция для баланса ковариатов</li>
+</ol>
+<div class="sourceCode" id="cb76"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb76-1"><a href="01-experiments.html#cb76-1" aria-hidden="true" tabindex="-1"></a>balance <span class="ot">&lt;-</span> <span class="cf">function</span>(data, covariates, type){</span>
+<span id="cb76-2"><a href="01-experiments.html#cb76-2" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> (type<span class="sc">==</span><span class="st">&#39;mean&#39;</span>){</span>
+<span id="cb76-3"><a href="01-experiments.html#cb76-3" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="fu">length</span>(covariates)){</span>
+<span id="cb76-4"><a href="01-experiments.html#cb76-4" aria-hidden="true" tabindex="-1"></a>      cov <span class="ot">&lt;-</span> covariates[i]</span>
+<span id="cb76-5"><a href="01-experiments.html#cb76-5" aria-hidden="true" tabindex="-1"></a>      m <span class="ot">&lt;-</span> <span class="fu">mean</span>(data[data<span class="sc">$</span>T<span class="sc">==</span><span class="dv">1</span>, cov])<span class="sc">-</span><span class="fu">mean</span>(data[data<span class="sc">$</span>T<span class="sc">==</span><span class="dv">0</span>, cov])</span>
+<span id="cb76-6"><a href="01-experiments.html#cb76-6" aria-hidden="true" tabindex="-1"></a>      <span class="fu">print</span>(cov)</span>
+<span id="cb76-7"><a href="01-experiments.html#cb76-7" aria-hidden="true" tabindex="-1"></a>      <span class="fu">print</span>(m)</span>
+<span id="cb76-8"><a href="01-experiments.html#cb76-8" aria-hidden="true" tabindex="-1"></a>    }</span>
+<span id="cb76-9"><a href="01-experiments.html#cb76-9" aria-hidden="true" tabindex="-1"></a>  } <span class="cf">else</span> <span class="cf">if</span> (type<span class="sc">==</span><span class="st">&#39;t.test&#39;</span>){</span>
+<span id="cb76-10"><a href="01-experiments.html#cb76-10" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="fu">length</span>(covariates)){</span>
+<span id="cb76-11"><a href="01-experiments.html#cb76-11" aria-hidden="true" tabindex="-1"></a>      cov <span class="ot">&lt;-</span> covariates[i]</span>
+<span id="cb76-12"><a href="01-experiments.html#cb76-12" aria-hidden="true" tabindex="-1"></a>      t <span class="ot">&lt;-</span> <span class="fu">t.test</span>(data[data<span class="sc">$</span>T<span class="sc">==</span><span class="dv">1</span>, cov], data[data<span class="sc">$</span>T<span class="sc">==</span><span class="dv">1</span>, cov])</span>
+<span id="cb76-13"><a href="01-experiments.html#cb76-13" aria-hidden="true" tabindex="-1"></a>      <span class="fu">print</span>(cov)</span>
+<span id="cb76-14"><a href="01-experiments.html#cb76-14" aria-hidden="true" tabindex="-1"></a>      <span class="fu">print</span>(t)</span>
+<span id="cb76-15"><a href="01-experiments.html#cb76-15" aria-hidden="true" tabindex="-1"></a>    }</span>
+<span id="cb76-16"><a href="01-experiments.html#cb76-16" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb76-17"><a href="01-experiments.html#cb76-17" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
+<p>А теперь посмотрим, сколько строчек займет наша симуляция с использованием функций:</p>
+<div class="sourceCode" id="cb77"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb77-1"><a href="01-experiments.html#cb77-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">123</span>)</span>
+<span id="cb77-2"><a href="01-experiments.html#cb77-2" aria-hidden="true" tabindex="-1"></a>data1 <span class="ot">&lt;-</span> <span class="fu">generate_data</span>(<span class="dv">1000</span>)</span>
+<span id="cb77-3"><a href="01-experiments.html#cb77-3" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">123</span>)</span>
+<span id="cb77-4"><a href="01-experiments.html#cb77-4" aria-hidden="true" tabindex="-1"></a>data1 <span class="ot">&lt;-</span> <span class="fu">randomization</span>(<span class="at">data=</span>data1, <span class="at">type=</span><span class="st">&#39;in order&#39;</span>)</span>
+<span id="cb77-5"><a href="01-experiments.html#cb77-5" aria-hidden="true" tabindex="-1"></a>data1 <span class="ot">&lt;-</span> <span class="fu">outcome</span>(<span class="at">data=</span>data1)</span>
+<span id="cb77-6"><a href="01-experiments.html#cb77-6" aria-hidden="true" tabindex="-1"></a><span class="fu">tail</span>(data1,<span class="dv">10</span>)</span></code></pre></div>
+<pre><code>##      number        X         Z        Y0        Y1 T         Y
+## 991     991 18.61054  75.36015 107.71110 125.93429 0 107.71110
+## 992     992 19.56646  37.83344 144.39269 158.58181 0 144.39269
+## 993     993 22.00504  44.27528 129.95640 144.11565 0 129.95640
+## 994     994 20.80118 105.68233  71.17735  87.99218 0  71.17735
+## 995     995 21.95826  38.13398 134.71123 149.89166 0 134.71123
+## 996     996 23.80737  64.28959 104.36495 120.01488 0 104.36495
+## 997     997 22.49480  77.85142  94.91935 111.10506 0  94.91935
+## 998     998 20.74049  80.37516  97.68081 112.19320 0  97.68081
+## 999     999 22.96706  81.78224  89.85344 105.76786 0  89.85344
+## 1000   1000 18.76177  56.73742 126.51679 142.61883 0 126.51679</code></pre>
+<div class="sourceCode" id="cb79"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb79-1"><a href="01-experiments.html#cb79-1" aria-hidden="true" tabindex="-1"></a><span class="fu">estimate</span>(<span class="at">data=</span>data1, <span class="at">response_variable =</span> <span class="st">&#39;Y&#39;</span>)</span></code></pre></div>
+<pre><code>## [1] 15.53169</code></pre>
+<div class="sourceCode" id="cb81"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb81-1"><a href="01-experiments.html#cb81-1" aria-hidden="true" tabindex="-1"></a><span class="fu">balance</span>(<span class="at">data=</span>data1, <span class="at">covariates =</span> <span class="fu">c</span>(<span class="st">&#39;X&#39;</span>,<span class="st">&#39;Z&#39;</span>), <span class="at">type =</span> <span class="st">&#39;mean&#39;</span>)</span></code></pre></div>
+<pre><code>## [1] &quot;X&quot;
+## [1] -0.02791759
+## [1] &quot;Z&quot;
+## [1] -0.5707093</code></pre>
+</div>
+</div>
+<div id="планирование-эксперимента" class="section level2" number="2.6">
+<h2><span class="header-section-number">2.6</span> 5. Планирование эксперимента</h2>
+<p>Ранее мы говорили, что при достаточном объеме выборки и хорошей рандомизации в среднем тритмент группа и контрольная группа окажутся похожимы друг на друга за исключением оказываемого на них воздействия, в этом случае в качестве хорошей оценки эффекта можно использовать простую разницу в средних исходах.</p>
+<p>По разным причинам может получиться так, что тритмент группа и контрольная группа не похожи друг на друга.</p>
+<p>Существует 2 способа как бороться с несбалансированностью групп:</p>
+<ul>
+<li>ex ante: “быть умным заранее”. Изначально проводим эксперимент так, чтобы несбалансированности не было и используем простую оценку
+<ul>
+<li>Престратификация</li>
+</ul></li>
+<li>ex post: берем такие данные, какие уже есть, но используем какие-то более умные и сложные оценки, сложнее обычной разницы в средних</li>
+</ul>
+<div id="престратификация" class="section level3" number="2.6.1">
+<h3><span class="header-section-number">2.6.1</span> 5.1 Престратификация</h3>
+</div>
+<div id="постстратификация" class="section level3" number="2.6.2">
+<h3><span class="header-section-number">2.6.2</span> 5.2 Постстратификация</h3>
+</div>
+</div>
+<div id="контрольные-переменные" class="section level2" number="2.7">
+<h2><span class="header-section-number">2.7</span> 6. Контрольные переменные</h2>
+</div>
+<div id="скорректированное-p-значение" class="section level2" number="2.8">
+<h2><span class="header-section-number">2.8</span> 7. Скорректированное p-значение</h2>
+<p><em>Если у вас возникли какие-то вопросы, или вы нашли неточности в тексте, напишите мне об этом на почту <a href="mailto:annastavnychuk@gmail.com" class="email">annastavnychuk@gmail.com</a></em></p>
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="index.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/USERNAME/REPO/edit/BRANCH/01-experiments.Rmd",
+"text": "Edit"
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["_main.pdf", "_main.epub"],
+"search": {
+"engine": "lunr",
+"options": null
+},
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>
