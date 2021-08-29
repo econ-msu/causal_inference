@@ -45,4 +45,4 @@ jobs:
         with:
           pandoc-version: '2.14.2'
       - name: Deploy the book
-        run: sh ./scripts/moveFile.sh
+        run: sh ./_deploy.sh
