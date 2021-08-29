@@ -1,0 +1,28 @@
+name: Book
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [ main ]
+
+jobs:    
+  build:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        r-version: [4.0.3]
+
+    steps:
+      - uses: actions/checkout@v2
+      - name: Install R
+        uses: r-lib/actions/setup-r@ffe45a39586f073cc2e9af79c4ba563b657dc6e3
+        with:
+          r-version: ${{ matrix.r-version }}
+      - name: Install renv
+        uses: r-lib/actions/setup-renv@d1d2731e4eb19e284e07fabc17bd9ce2e5ec079c
+      - name: Install Pandoc
+        uses: r-lib/actions/setup-pandoc@v1
+        with:
+          pandoc-version: '2.14.2'
+      - name: Deploy the book
+        run: sh ./scripts/moveFile.sh
