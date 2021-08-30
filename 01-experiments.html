@@ -24,7 +24,7 @@
 <meta name="author" content="Анна Ставнийчук" />
 
 
-<meta name="date" content="2021-08-29" />
+<meta name="date" content="2021-08-30" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -459,10 +459,10 @@ treatment effect):</p>
 <div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="01-experiments.html#cb9-1" aria-hidden="true" tabindex="-1"></a>?Distributions</span></code></pre></div>
 <p>Теперь, когда мы точно знаем, как устроены аргументы у функции <code>rnorm(n;mean;sd)</code>, давайте попробуем достать 5 чисел из стандартного нормального распределения <span class="math inline">\(\mathcal{N} \sim \left(0;1\right)\)</span>:</p>
 <div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="01-experiments.html#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">rnorm</span>(<span class="dv">5</span>,<span class="dv">0</span>,<span class="dv">1</span>)</span></code></pre></div>
-<pre><code>## [1] -1.63363971 -0.05602653 -1.68079615  0.11311903 -0.45931792</code></pre>
+<pre><code>## [1]  0.04582745  2.40258607 -0.40066131 -0.32729518  0.17409748</code></pre>
 <p>Если вы повторяли за мной, то у вас, вероятно, получились другие значения. А теперь я тоже попробую ещё раз:</p>
 <div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="01-experiments.html#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">rnorm</span>(<span class="dv">5</span>,<span class="dv">0</span>,<span class="dv">1</span>)</span></code></pre></div>
-<pre><code>## [1] -1.3154725 -0.2754974  1.7233143  0.7977141  0.8024386</code></pre>
+<pre><code>## [1] -1.3893836 -0.5361437  0.4019646 -0.2244901 -0.9506058</code></pre>
 <p>Как и ожидалось, у меня тоже не совпало с предыдущим результатом. Существует по меньшей мере две причины, почему нам хотелось бы получать одинаковые результаты:</p>
 <ul>
 <li>Работа на семинарах, когда нам с вами было бы удобно сверяться</li>
