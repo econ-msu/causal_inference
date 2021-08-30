@@ -1,0 +1,14 @@
+---
+title: "Причинная модель Рубина"
+output_yaml: '../../../book/_output.yml'
+bibliography: '../../../citations.bib'
+#date: "01/09/2021"
+# relative paths.. knit root dir i suppose
+
+# seperate file for books because it specify chapters...
+# or can I use title
+# CHANGE R WD for all files!!!
+---
+
+```{r, child=c('../../../content/experiments.Rmd')}
+```

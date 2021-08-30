@@ -38,12 +38,12 @@ vignettes/*.pdf
 
 # R Environment Variables
 .Renviron
+.Rprofile
 
 renv/
 *_main.Rmd
 *_main_files/
 *_book/
 *.html
-course_materials/*
-!course_materials/*Rmd
+*.log
 *book-output/
