@@ -459,10 +459,10 @@ treatment effect):</p>
 <div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="01-experiments.html#cb9-1" aria-hidden="true" tabindex="-1"></a>?Distributions</span></code></pre></div>
 <p>Теперь, когда мы точно знаем, как устроены аргументы у функции <code>rnorm(n;mean;sd)</code>, давайте попробуем достать 5 чисел из стандартного нормального распределения <span class="math inline">\(\mathcal{N} \sim \left(0;1\right)\)</span>:</p>
 <div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="01-experiments.html#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">rnorm</span>(<span class="dv">5</span>,<span class="dv">0</span>,<span class="dv">1</span>)</span></code></pre></div>
-<pre><code>## [1] -0.6303883  1.1002418  0.3873307 -0.5337646 -0.2627393</code></pre>
+<pre><code>## [1] -1.6246967 -0.4488533  0.3683357 -0.5318710  0.4652691</code></pre>
 <p>Если вы повторяли за мной, то у вас, вероятно, получились другие значения. А теперь я тоже попробую ещё раз:</p>
 <div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="01-experiments.html#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">rnorm</span>(<span class="dv">5</span>,<span class="dv">0</span>,<span class="dv">1</span>)</span></code></pre></div>
-<pre><code>## [1]  0.6068760 -1.4546035 -0.2532147  0.1099014 -0.1905622</code></pre>
+<pre><code>## [1]  0.4760591 -0.7254438  0.5738613 -0.6364425  0.4312655</code></pre>
 <p>Как и ожидалось, у меня тоже не совпало с предыдущим результатом. Существует по меньшей мере две причины, почему нам хотелось бы получать одинаковые результаты:</p>
 <ul>
 <li>Работа на семинарах, когда нам с вами было бы удобно сверяться</li>
