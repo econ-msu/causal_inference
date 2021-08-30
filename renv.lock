@@ -366,6 +366,13 @@
       "Repository": "CRAN",
       "Hash": "97def703420c8ab10d8f0e6c72101e02"
     },
+    "randomizr": {
+      "Package": "randomizr",
+      "Version": "0.20.0",
+      "Source": "Repository",
+      "Repository": "CRAN",
+      "Hash": "d5219690741fc8aeeb8fd7fa78d53a15"
+    },
     "readr": {
       "Package": "readr",
       "Version": "2.0.1",
